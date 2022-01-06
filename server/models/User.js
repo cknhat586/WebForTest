@@ -28,7 +28,7 @@ module.exports = {
         console.log('Password:', password);
         const userFound = await db.get(tbName, usernameFieldName, username);
         if (userFound.length > 0) {
-            const match = pwdControl.auth(userFound[0].f_Password, password);
+            const match = bcrypt.auth(userFound[0].f_Password, password);
             if (match) {
                 console.log("SIGN-IN AUTH: Sign-in successfully!");
                 return true;
