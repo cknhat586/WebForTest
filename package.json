@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "install": "npm i nodemon -g",
-    "start": "nodemon --exec babel-node index.js"
+    "start": "nodemon --exec babel-node server/index.js"
   },
   "author": "",
   "license": "ISC",
