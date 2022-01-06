@@ -4,10 +4,10 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const route = require('./routes/index');
 
+const app = express();
+
 const PUBLIC_PATH = path.join(__dirname, '../public');
 app.use(express.static(PUBLIC_PATH));
-
-const app = express();
 
 require("dotenv").config();
 

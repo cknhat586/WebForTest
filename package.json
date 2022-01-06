@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "install": "npm i nodemon -g",
-    "start": "nodemon --exec babel-node server/index.js"
+    "start": "nodemon server/index.js"
   },
   "author": "",
   "license": "ISC",
@@ -24,9 +24,6 @@
     "pg-promise": "^10.11.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.16.7",
-    "@babel/node": "^7.16.7",
-    "@babel/preset-env": "^7.16.7",
     "node-sass": "^7.0.1",
     "nodemon": "^2.0.15"
   }
