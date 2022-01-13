@@ -15,16 +15,11 @@ module.exports = app => {
             let user;
             try {
                 user = await userModel.getUserByName(username);
-
-                if (!user) { 
-                    return done(null, false, { message: ACCOUNT_NOT_EXIST_NOTI });
-                } 
+                if (!user) { return done(null, false, { message: ACCOUNT_NOT_EXIST_NOTI }); } 
 
                 const auth = await userModel.auth(username, password);
-
-                if (!auth) {
-                    return done(null, false, { message: INVALID_PASSWORD_NOTI });
-                }
+                if (!auth) { return done(null, false, { message: INVALID_PASSWORD_NOTI }); }
+                
                 return done(null, user);
             } catch (error) {
                 return done(error);
