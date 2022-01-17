@@ -1,0 +1,57 @@
+<div class="normal-user mb-5">
+    <div class="title">
+        <h1>{{info.name}}</h1>
+        <div class="alert alert-{{info.status.class}}" role="alert">
+            {{info.status.name}}
+        </div>
+
+    </div>
+    <div class="d-flex align-items-start">
+        <nav>
+            <div class="nav nav-tabs flex-column me-3" id="nav-tab" role="tablist">
+                <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
+                    type="button" role="tab" aria-controls="nav-profile" aria-selected="true">Infomation</button>
+
+                <button class="nav-link" id="nav-history-tab" data-bs-toggle="tab" data-bs-target="#nav-history"
+                    type="button" role="tab" aria-controls="nav-history" aria-selected="false">History</button>
+
+                <button class="nav-link" id="nav-payment-tab" data-bs-toggle="tab" data-bs-target="#nav-payment"
+                    type="button" role="tab" aria-controls="nav-payment" aria-selected="false">Payment</button>
+            </div>
+        </nav>
+        <div class="tab-content px-5" id="nav-tabContent" style="width: 100%;">
+            <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                {{>normal-user/profile}}
+            </div>
+
+            <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
+                {{>normal-user/history}}</div>
+
+            <div class="tab-pane fade" id="nav-payment" role="tabpanel" aria-labelledby="nav-payment-tab">
+                {{>normal-user/payment}}</div>
+        </div>
+    </div>
+    <style>
+        .normal-user .title {
+            text-align: center;
+        }
+
+        .normal-user .nav-tabs {
+            border-bottom: 1px solid transparent;
+            border-right: 1px solid #dee2e6;
+        }
+
+        .normal-user .nav-tabs .nav-link {
+            color: #495057;
+            margin-bottom: 0px;
+            margin-right: -1px;
+            border-top-right-radius: 0;
+            border-bottom-left-radius: 0.25rem;
+        }
+
+        .normal-user .nav-tabs .nav-link.active {
+            border-color: #dee2e6 #fff #dee2e6 #dee2e6;
+            color: #0d6efd;
+        }
+    </style>
+</div>
