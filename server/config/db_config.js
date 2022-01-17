@@ -9,7 +9,7 @@ const connect_string = {
     password: '123456',
     host: 'localhost',
     port: 5432,
-    database: '',
+    database: 'UserDB',
 
     allowExitOnIdle: true
 }

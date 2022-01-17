@@ -1,7 +1,7 @@
 const db = require('../connections/postgres');
 const tbName = 'Users';
 const usernameFieldName = 'f_Username';
-const bcrypt = require('../utils/bcrypt');
+const bcrypt = require('../middlewares/bcrypt');
 
 module.exports = {
     getAll: async () => {
@@ -23,7 +23,7 @@ module.exports = {
     },
 
     auth: async (username, password) => {
-        console.log('Sign-in AUTH:');
+        console.log('User Model: Sign-in AUTH:');
         console.log('Username:', username);
         console.log('Password:', password);
         const userFound = await db.get(tbName, usernameFieldName, username);
@@ -38,5 +38,15 @@ module.exports = {
         }
         console.log("SIGN-IN AUTH: Account does not exist!");
         return false;
+    },
+
+    getRelevantByUsername: async username => {
+        const user = this.getUserByName(username);
+        if (!user) { return ;}
+
+        const userID = user.f_ID;
+        
+
+        return res;
     }
 }

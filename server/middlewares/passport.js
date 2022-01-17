@@ -3,22 +3,23 @@ const passport = require('passport')
 
 const userModel = require('../models/User');
 
-const ACCOUNT_NOT_EXIST_NOTI = 'Account does not exist!';
-const INVALID_PASSWORD_NOTI = 'Invalid Password!';
+
+const ACCOUNT_NOT_EXIST_NOTIFY = 'Account does not exist!';
+const INVALID_PASSWORD_NOTIFY = 'Invalid Password!';
 
 module.exports = app => {
     passport.use(new LocalStrategy(
         async (username, password, done) => {
-            console.log('get in local strategy');
-            console.log('Username', username);
-            console.log('Password', password);
+            console.log('Start Local Strategy');
+            console.log('Username:', username);
+            console.log('Password:', password);
             let user;
             try {
                 user = await userModel.getUserByName(username);
-                if (!user) { return done(null, false, { message: ACCOUNT_NOT_EXIST_NOTI }); } 
+                if (!user) { return done(null, false, { message: ACCOUNT_NOT_EXIST_NOTIFY }); } 
 
                 const auth = await userModel.auth(username, password);
-                if (!auth) { return done(null, false, { message: INVALID_PASSWORD_NOTI }); }
+                if (!auth) { return done(null, false, { message: INVALID_PASSWORD_NOTIFY }); }
                 
                 return done(null, user);
             } catch (error) {
