@@ -1,5 +1,6 @@
 <table id="managerHistoryTable" class="table table-striped table-bordered caption-top align-middle mx-auto">
-    <caption>Action history of {{manager}}</caption>
+    <caption>Action history of manager{{#if manager}}: {{manager}}{{/if}}
+    </caption>
     <thead>
         <tr class="bg-info text-center">
             <th scope="col" class="col-1">No.</th>
@@ -7,21 +8,15 @@
             <th scope="col" class="col-3">Time</th>
         </tr>
     </thead>
+    {{#if history}}
     <tbody>
+        {{#each history}}
         <tr>
-            <th scope="row" class="text-center">1</th>
-            <td>Lorem ipsum dolor sit amet consectetuer</td>
-            <td>Tue Jan 10 2022 15:44:00</td>
+            <th scope="row" class="text-center">{{this.f_ID}}</th>
+            <td>{{this.f_Action}}</td>
+            <td>{{this.f_Date}}</td>
         </tr>
-        <tr>
-            <th scope="row" class="text-center">2</th>
-            <td>Lorem ipsum dolor sit amet consectetuer</td>
-            <td>Tue Jan 10 2022 15:44:00</td>
-        </tr>
-        <tr>
-            <th scope="row" class="text-center">3</th>
-            <td>Lorem ipsum dolor sit amet consectetuer</td>
-            <td>Tue Jan 10 2022 15:44:00</td>
-        </tr>
+        {{/each}}
     </tbody>
+    {{/if}}
 </table>

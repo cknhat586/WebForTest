@@ -3,7 +3,7 @@ require('dotenv').config();
 
 module.exports = {
     generateAccessToken: user => {
-        const accessToken =jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
+        const accessToken = jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, {
             expiresIn: '15s'
         });
 
@@ -22,20 +22,25 @@ module.exports = {
         // const authHeader = req.header('Authorization');
         // const token = authHeader && authHeader.split(' ')[1];
         const token = req.cookies.token;
-        console.log('Verifying JWT Token...');
-    
-        if (!token) { return res.sendStatus(401); }
-    
+        console.log('JWT: Authorinzing...')
+        console.log('Verifying Token...');
+
+        if (!token) {
+            console.log('Token is missing!');
+            return res.sendStatus(401);
+        }
+
         try {
             const decoded = jwt.verify(token, process.env.ACCESS_TOKEN_SECRET);
-            console.log('Decoded: ', decoded);
+            console.log('Token decoded: ', decoded);
 
-            // req.token = token;
-            // req.user = decoded;
+            req.user = decoded;
 
             next();
         } catch (error) {
-            console.log('Error at middlewares/jsonwebtoken/verifyToken: ', error);
+            //console.log('Error at middlewares/jsonwebtoken/verifyToken: ', error);
+            console.log('Token expired');
+            res.clearCookie('token');
             return res.sendStatus(403);
         }
     }
