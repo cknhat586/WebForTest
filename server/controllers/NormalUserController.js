@@ -44,12 +44,13 @@ class NormalUserController {
       ],
       payment: {
         id: "012345678",
-        surplus: "5.000.000",
-        debit: "100.000",
+        surplus: 500000,
+        debit: 10000,
         connect: {
           id: "545214545",
           name: "My Name",
         },
+
         history: [
           {
             id: "sdsh233",
@@ -77,6 +78,94 @@ class NormalUserController {
           },
         ],
       },
+      noti: [
+        {
+          title: "Payment",
+          msg: "Unpaid debt: 100.000",
+        },
+      ],
+      combo: [
+        {
+          id: "1232323sd",
+          name: "Combo 1",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "Combo abc",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "the Combo 1",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "Abc Combo 1",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "No Combo 1",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "Combo 1",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "Haha Combo 1",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "Combo 2",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "UU Haha Combo 1",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+        {
+          id: "1232323sd",
+          name: "BSL Combo 2",
+          image: "https://en.pimg.jp/066/591/867/1/66591867.jpg",
+          price: 50000,
+          count: 4,
+          date: 15,
+        },
+      ],
     });
   }
 }
