@@ -1,15 +1,40 @@
 class NormalUserController {
   user(req, res) {
     res.render("normal-user", {
+      sideIndex: 0,
       info: {
         name: "My Name",
         status: { class: "danger", name: "F0" },
+      },
+      noti: [
+        {
+          title: "Payment",
+          msg: "Unpaid debt: 100.000",
+        },
+      ],
+      profile: {
         date_birth: "01/01/2001",
         address: "Q1, HCM",
         id: "123456789",
         phone: "0122334456",
         email: "abc@email.com",
       },
+    });
+  }
+
+  history(req, res) {
+    res.render("normal-user", {
+      sideIndex: 1,
+      info: {
+        name: "My Name",
+        status: { class: "danger", name: "F0" },
+      },
+      noti: [
+        {
+          title: "Payment",
+          msg: "Unpaid debt: 100.000",
+        },
+      ],
       history: [
         {
           id: "3nasd3",
@@ -42,41 +67,15 @@ class NormalUserController {
           description: "Create user",
         },
       ],
-      payment: {
-        id: "012345678",
-        surplus: 500000,
-        debit: 10000,
-        connect: {
-          id: "545214545",
-          name: "My Name",
-        },
+    });
+  }
 
-        history: [
-          {
-            id: "sdsh233",
-            date: "06/03/2021",
-            description: "Pay off the debt",
-            change: "-800.000",
-          },
-          {
-            id: "sdsh233",
-            date: "05/03/2021",
-            description: "Pay off the debt",
-            change: "-500.000",
-          },
-          {
-            id: "sdsh233",
-            date: "04/03/2021",
-            description: "Pay off the debt",
-            change: "-200.000",
-          },
-          {
-            id: "sdsh233",
-            date: "03/03/2021",
-            description: "Recharge",
-            change: "+10.000.000",
-          },
-        ],
+  necessities(req, res) {
+    res.render("normal-user", {
+      sideIndex: 2,
+      info: {
+        name: "My Name",
+        status: { class: "danger", name: "F0" },
       },
       noti: [
         {
@@ -84,6 +83,7 @@ class NormalUserController {
           msg: "Unpaid debt: 100.000",
         },
       ],
+
       combo: [
         {
           id: "1232323sd",
@@ -166,6 +166,58 @@ class NormalUserController {
           date: 15,
         },
       ],
+    });
+  }
+
+  payment(req, res) {
+    res.render("normal-user", {
+      sideIndex: 3,
+      info: {
+        name: "My Name",
+        status: { class: "danger", name: "F0" },
+      },
+      noti: [
+        {
+          title: "Payment",
+          msg: "Unpaid debt: 100.000",
+        },
+      ],
+      payment: {
+        id: "012345678",
+        surplus: 500000,
+        debit: 10000,
+        connect: {
+          id: "545214545",
+          name: "My Name",
+        },
+
+        history: [
+          {
+            id: "sdsh233",
+            date: "06/03/2021",
+            description: "Pay off the debt",
+            change: "-800.000",
+          },
+          {
+            id: "sdsh233",
+            date: "05/03/2021",
+            description: "Pay off the debt",
+            change: "-500.000",
+          },
+          {
+            id: "sdsh233",
+            date: "04/03/2021",
+            description: "Pay off the debt",
+            change: "-200.000",
+          },
+          {
+            id: "sdsh233",
+            date: "03/03/2021",
+            description: "Recharge",
+            change: "+10.000.000",
+          },
+        ],
+      },
     });
   }
 }

@@ -1,6 +1,6 @@
 <div class="normal-user mb-5">
-    <div class="title">
-        <div class="noti  float-end mt-2">
+    <div class="title position-relative">
+        <div class="noti  position-absolute top-0 end-0 mt-2">
             <button type="button" class="btn btn-outline-danger" id="dropdownMenuButton2" data-bs-toggle="dropdown"
                 aria-expanded="false">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bell"
@@ -17,51 +17,38 @@
                     <div class="card">
                         <div class="card-body">
                             <div class="fw-bold">{{this.title}}</div>
-                            <p class="card-text">{{this.msg}}</p>
+                            <a href="/payment">
+                                <p class="card-text">{{this.msg}}</p>
+                            </a>
                         </div>
                     </div>
                 </li>
                 {{/each}}
             </ul>
         </div>
-        <h1>{{info.name}}</h1>
 
-
+        <div>
+            <h1> {{info.name}}</h1>
+        </div>
         <div class="alert alert-{{info.status.class}}" role="alert">
             {{info.status.name}}
         </div>
 
     </div>
     <div class="d-flex align-items-start">
-        <nav>
+        <nav class="sidebar">
             <div class="nav nav-tabs flex-column me-3" id="nav-tab" role="tablist">
-                <button class="nav-link active" id="nav-profile-tab" data-bs-toggle="tab" data-bs-target="#nav-profile"
-                    type="button" role="tab" aria-controls="nav-profile" aria-selected="true">Infomation</button>
-
-                <button class="nav-link" id="nav-history-tab" data-bs-toggle="tab" data-bs-target="#nav-history"
-                    type="button" role="tab" aria-controls="nav-history" aria-selected="false">History</button>
-
-                <button class="nav-link" id="nav-necessities-tab" data-bs-toggle="tab" data-bs-target="#nav-necessities"
-                    type="button" role="tab" aria-controls="nav-necessities" aria-selected="false">Necessities</button>
-
-                <button class="nav-link" id="nav-payment-tab" data-bs-toggle="tab" data-bs-target="#nav-payment"
-                    type="button" role="tab" aria-controls="nav-payment" aria-selected="false">Payment</button>
-
+                <a class="nav-link{{#ifCond sideIndex '==' 0}} active{{/ifCond}}" href="/profile">Profile</a>
+                <a class="nav-link{{#ifCond sideIndex '==' 1}} active{{/ifCond}}" href="/history">History</a>
+                <a class="nav-link{{#ifCond sideIndex '==' 2}} active{{/ifCond}}" href="/necessities">Necessities</a>
+                <a class="nav-link{{#ifCond sideIndex '==' 3}} active{{/ifCond}}" href="/payment">Payment</a>
             </div>
         </nav>
-        <div class="tab-content px-5" id="nav-tabContent" style="width: 100%;">
-            <div class="tab-pane fade show active" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-                {{>normal-user/profile}}
-            </div>
-
-            <div class="tab-pane fade" id="nav-history" role="tabpanel" aria-labelledby="nav-history-tab">
-                {{>normal-user/history}}</div>
-
-            <div class="tab-pane fade" id="nav-payment" role="tabpanel" aria-labelledby="nav-payment-tab">
-                {{>normal-user/payment}}</div>
-
-            <div class="tab-pane fade" id="nav-necessities" role="tabpanel" aria-labelledby="nav-necessities-tab">
-                {{>normal-user/necessities}}</div>
+        <div class="tab-content" style="width: 100%;">
+            {{#ifCond sideIndex '==' 0}}{{>normal-user/profile}}{{/ifCond}}
+            {{#ifCond sideIndex '==' 1}} {{>normal-user/history}}{{/ifCond}}
+            {{#ifCond sideIndex '==' 2}}{{>normal-user/necessities}}{{/ifCond}}
+            {{#ifCond sideIndex '==' 3}}{{>normal-user/payment}}{{/ifCond}}
         </div>
     </div>
     <style>
@@ -69,12 +56,12 @@
             text-align: center;
         }
 
-        .normal-user .nav-tabs {
+        .normal-user .sidebar .nav-tabs {
             border-bottom: 1px solid transparent;
             border-right: 1px solid #dee2e6;
         }
 
-        .normal-user .nav-tabs .nav-link {
+        .normal-user .sidebar .nav-tabs .nav-link {
             color: #495057;
             margin-bottom: 0px;
             margin-right: -1px;
@@ -82,9 +69,16 @@
             border-bottom-left-radius: 0.25rem;
         }
 
-        .normal-user .nav-tabs .nav-link.active {
+        .normal-user .sidebar .nav-tabs .nav-link.active {
             border-color: #dee2e6 #fff #dee2e6 #dee2e6;
+        }
+
+        .normal-user .nav-tabs .nav-link.active {
             color: #0d6efd;
+        }
+
+        .normal-user .nav-tabs .nav-link {
+            color: #495057;
         }
     </style>
 </div>
