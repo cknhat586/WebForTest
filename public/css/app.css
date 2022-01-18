@@ -1,2 +1,8 @@
 #loginForm {
-  width: 25%; }
+  width: 20%; }
+
+#addUserForm {
+  width: 50%; }
+
+#managerHistoryTable {
+  width: 70%; }

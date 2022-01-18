@@ -40,7 +40,7 @@ class AccountController {
 
                 res.cookie('token', accessToken);
                 
-                return res.redirect('dashboard', '301', {
+                return res.redirect('user/dashboard', '301', {
                     layout: 'dashboard',
                     loggedIn: 'true'
                 });
