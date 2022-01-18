@@ -3,7 +3,6 @@ const passport = require('passport')
 
 const userModel = require('../models/User');
 
-
 const ACCOUNT_NOT_EXIST_NOTIFY = 'Account does not exist!';
 const INVALID_PASSWORD_NOTIFY = 'Invalid Password!';
 
