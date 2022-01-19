@@ -1,5 +1,5 @@
 <table id="managerHistoryTable" class="table table-striped table-bordered caption-top align-middle mx-auto">
-    <caption>Action history of manager{{#if manager}}: {{manager}}{{/if}}
+    <caption>Action history of manager{{#if manager}}: <b>{{manager}}</b>{{/if}}
     </caption>
     <thead>
         <tr class="bg-info text-center">
@@ -14,9 +14,12 @@
         <tr>
             <th scope="row" class="text-center">{{this.f_ID}}</th>
             <td>{{this.f_Action}}</td>
-            <td>{{this.f_Date}}</td>
+            <td class="text-center">{{this.f_Date}}</td>
         </tr>
         {{/each}}
     </tbody>
     {{/if}}
 </table>
+<div class="text-center">
+    <a class="btn btn-primary" href="/admin/managerList">BACK</a>
+</div>

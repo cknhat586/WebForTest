@@ -21,6 +21,30 @@ const managerActionHistory = [
     }
 ]
 
+const managerList = [
+    {
+        f_ID: 1,
+        f_Username: 'nguyenhuudien',
+        f_Fullname: 'Nguyen Huu Dien',
+        f_isLocked: false
+    },
+
+    {
+        f_ID: 2,
+        f_Username: 'nguyentiensy',
+        f_Fullname: 'Nguyen Tien Sy',
+        f_isLocked: false
+    },
+
+    {
+        f_ID: 3,
+        f_Username: 'nguyenvu',
+        f_Fullname: 'Nguyen Van Vu',
+        f_isLocked: true
+    },
+]
+
 module.exports = {
+    managerList: managerList,
     managerActionHistory: managerActionHistory
 }

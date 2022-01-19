@@ -1,0 +1,37 @@
+<table id="managerListTable" class="table table-striped table-bordered caption-top align-middle mx-auto">
+    <caption>List Manager</caption>
+    <thead>
+        <tr class="bg-info text-center">
+            <th scope="col" class="col-1">No.</th>
+            <th scope="col" class="col-3">Username</th>
+            <th scope="col" class="col-5">Fullname</th>
+            <th scope="col" class="col-3">Action</th>
+        </tr>
+    </thead>
+    {{#if list}}
+    <tbody>
+        {{#each list}}
+        <tr>
+            <th scope="row" class="text-center">{{this.f_ID}}</th>
+            <td>{{this.f_Username}}</td>
+            <td>{{this.f_Fullname}}</td>
+            <td class="text-center">
+                {{#isEqual this.f_isLocked true}}
+                    <a class="btn" href="/admin/managerList?username={{this.f_Username}}&command=unlock">
+                        Unlock
+                    </a>
+                {{else}}
+                    <a class="btn" href="/admin/managerList?username={{this.f_Username}}&command=lock">
+                        Lock
+                    </a>
+                {{/isEqual}}
+                <a class="btn" href="/admin/managerHistory?username={{this.f_Username}}">History</a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+    {{/if}}
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" href="/admin">BACK</a>
+</div>

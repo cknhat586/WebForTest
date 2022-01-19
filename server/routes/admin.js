@@ -9,6 +9,8 @@ router.get('/managerHistory', adminController.managerHistoryGET);
 
 router.get('/hospitalList', adminController.hospitalListGET);
 
+router.get('/logout', adminController.logoutGET);
+
 router.get('/', adminController.indexGET);
 
 
