@@ -6,12 +6,14 @@ const accountController = require('../controllers/AccountController');
 
 router.get('/login', accountController.signinGET);
 
-router.get('/', siteController.indexGET);
+router.get('/signup', accountController.signupGET);
 
 
 router.post('/login', accountController.signinPOST);
 
-router.post('/', siteController.indexPOST);
+router.post('/signup', accountController.signupPOST);
 
+
+router.use('/', siteController.index);
 
 module.exports = router;

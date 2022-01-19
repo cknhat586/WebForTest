@@ -12,8 +12,8 @@ class UserController {
         res.render('user/dashboard', { layout: "dashboard", activeDashboard: true} );
     }
 
-    user(req, res) {
-        res.render('user/user', { layout: "dashboard", activeUser: true });
+    info(req, res) {
+        res.render('user/info', { layout: "dashboard", activeUser: true });
     }
 
     medicine(req, res) {

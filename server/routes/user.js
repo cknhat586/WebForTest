@@ -5,7 +5,7 @@ const userController = require('../controllers/UserController');
 
 router.get('/dashboard', userController.dashboard);
 
-router.get('/user', userController.user);
+router.get('/info', userController.info);
 
 router.get('/location', userController.location);
 

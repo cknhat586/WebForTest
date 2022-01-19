@@ -13,10 +13,7 @@ router.get("/listPatient/caokimnhat", managerController.listCaokimnhatGET);
 
 router.get("/listPatient/voxuanvinh", managerController.listVoxuanvinhGET);
 
-router.get(
-  "/listPatient/nguyenhuudien",
-  managerController.listNguyenhuudienGET
-);
+router.get("/listPatient/nguyenhuudien", managerController.listNguyenhuudienGET);
 
 router.get("/listPatient/trantuanvu", managerController.listTrantuanvuGET);
 

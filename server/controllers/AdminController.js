@@ -3,6 +3,7 @@ const data = require('../connections/rawData');
 class AdminController {
 
     indexGET(req, res) {
+        console.log('admin home')
         res.render('admin/adminHome');
     }
 
@@ -22,7 +23,7 @@ class AdminController {
                     break;
                 }
             }
-            res.redirect('managerList', '301', {
+            res.redirect('managerList', '200', {
                 list: newList
             });
         } else {
@@ -49,11 +50,6 @@ class AdminController {
 
     hospitalListGET(req, res) {
         res.render('admin/hospitalList');
-    }
-
-    logoutGET(req, res) {
-        console.log('logout');
-        res.render('login');
     }
 }
 

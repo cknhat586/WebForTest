@@ -4,15 +4,19 @@ const jwt = require('../middlewares/jwt');
 class AccountController {
 
     signupGET(req,res) {
-
+        res.render('signup');
     }
 
     signinGET(req, res) {
-        res.render('login');
-    }
+        if (req.user) { 
+            req.logOut(); 
+        }
 
-    signoutGET(req, res) {
-        
+        if (req.cookies.token) {
+            res.clearCookie('token');
+        }
+
+        res.render('login');
     }
 
     signinPOST(req, res, next) {
@@ -53,7 +57,7 @@ class AccountController {
     }
 
     signupPOST(req, res) {
-        
+        res.render('signup');
     }
 
 }
