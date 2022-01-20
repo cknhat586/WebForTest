@@ -311,7 +311,7 @@ COMMIT;
 -- Table structure for Relevants
 -- ----------------------------
 DROP TABLE IF EXISTS "Relevants";
-CREATE TABLE "Users" (
+CREATE TABLE "Relevants" (
   "f_Username1" varchar(12) NOT NULL,
   "f_Username2" varchar(12) NOT NULL
 )

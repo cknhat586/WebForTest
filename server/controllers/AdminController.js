@@ -1,6 +1,8 @@
 const data = require('../connections/rawData');
 Object.freeze(data);
 
+const hostpitalModel = require('../models/Hospitals');
+
 class AdminController {
 
     indexGET(req, res) {
@@ -42,19 +44,17 @@ class AdminController {
         return res.render('admin/addHospital');
     }
 
-    editHospitalGET(req, res) {
+    async editHospitalGET(req, res) {
         const crrHospitalName = req.query.name;
-        const db_data = data.hospitalList;
-        let crrHospital;
-        for (let i = 0; i < db_data.length; i++) {
-            if (db_data[i].f_Name == crrHospitalName) {
-                crrHospital = db_data[i];
-                break;
-            }
+        const crrHospital = await hostpitalModel.getHospitalByName(crrHospitalName);
+        if (crrHospital) {
+            return res.render('admin/editHospital', {
+                hospital: crrHospital
+            });
+        } else {
+            return res.redirect('/admin/hospitalList');
         }
-        return res.render('admin/editHospital', {
-            hospital: crrHospital
-        });
+
     }
 
     managerHistoryGET(req, res) {
@@ -72,8 +72,9 @@ class AdminController {
         });
     }
 
-    hospitalListGET(req, res) {
-        const hospitalList = data.hospitalList;
+    async hospitalListGET(req, res) {
+        const hospitalList = await hostpitalModel.getAll();
+        console.log(hospitalList);
         let list = hospitalList;
         for (let i = 0; i < list.length; i++) {
             list[i].f_Current = (list[i].f_Current).toLocaleString();
