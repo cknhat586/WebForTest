@@ -6,10 +6,14 @@ CREATE TABLE "Users" (
   "f_ID" int4 NOT NULL,
   "f_Username" varchar(50) NOT NULL,
   "f_Password" varchar(255) NOT NULL,
-  "f_Name" varchar(50),
-  "f_Email" varchar(50),
-  "f_DOB" timestamp,
-  "f_Permission" int4
+  "f_CMND" varchar(9) NOT NULL,
+  "f_Fullname" varchar(50) NOT NULL,
+  "f_SDT" varchar(15),
+  "f_YOB" int4,
+  "f_State" int4 NOT NULL,
+  "f_Address" varchar(255),
+  "f_Hospital" varchar(50),
+  "f_Permission" int4 NOT NULL
 )
 ;
 
@@ -17,10 +21,289 @@ CREATE TABLE "Users" (
 -- Records of Users
 -- ----------------------------
 BEGIN;
-INSERT INTO "Users" VALUES (1, 'user1', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', 'Cao Kim Nhat', 'ckn@gmail.com', '2014-02-26 00:00:00.000', 0);
+INSERT INTO "Users" 
+VALUES (1, '203534936', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '203534936', 'Nguyễn Thanh Hiếu', '0954733213', 1998, 0, '485 Nguyễn Thái Học, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh', 'Bệnh viên đa khoa thành phố Hồ Chí Minh', 0);
+INSERT INTO "Users" 
+VALUES (2, '421255321', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '421255321', 'Vũ Phước Nhân', '0954733213', 1998, 0, '325 Phan Đình Phùng, Phường 15, Quận Gò Vấp, Thành phố Hồ Chí Minh', 'Bệnh viên Chợ Rẫy', 1);
+INSERT INTO "Users" 
+VALUES (3, '596600534', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '596600534', 'Ung Phúc Thịnh', '0954733213', 1999, 0, '990 Lê Lợi, Phường Vĩnh Phúc, Quận Ba Đình, Thành phố Hà Nội', 'Bệnh viên Việt Pháp', 1);
+INSERT INTO "Users" 
+VALUES (4, '369151920', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '369151920', 'Nghiêm Thế Trung', '0954733213', 1997, 0, '319 Lê Quí Đôn, Phường Lạc Viên, Quận Ngô Quyền, Thành phố Hải Phòng', 'Bệnh viên đa khoa thành phố Nhi Đồng', 1);
+INSERT INTO "Users" 
+VALUES (5, '429794005', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '429794005', 'Võ Thành Lợi', '0954733213', 1999, 0, '88 Trần Quốc Tuấn, Phường An Hòa, Quận Ninh Kiều, Thành phố Cần Thơ', 'Bệnh viên Từ Dũ', 2);
+INSERT INTO "Users" 
+VALUES (6, '363218716', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '363218716', 'Nguyễn Lương Tài', '0954733213', 2000, 0, '52 Cao Thái Tổ, Phường Bắc Sơn, Quận Kiến An, Thành phố Hải Phòng', 'Bệnh viên Minh Thiện', 2);
+INSERT INTO "Users" 
+VALUES (7, '295012958', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '295012958', 'Cao Kiến Ðức', '0954733213', 2001, 0, '135 Hùng Vương, Phường Thuận Phước, Quận Hải Châu, Thành phố Đà Nẵng', 'Bệnh viên đa khoa thành phố Đà Nẵng', 2);
 
 COMMIT;
+
 -- ----------------------------
--- Primary Key structure for table Users
+-- Table structure for Places
 -- ----------------------------
-ALTER TABLE "Users" ADD CONSTRAINT "PK__Users__2910CFA5E0B78CF8" PRIMARY KEY ("f_ID") WITH (fillfactor=0);
+DROP TABLE IF EXISTS "Places";
+CREATE TABLE "Places" (
+  "f_Province" varchar(255) NOT NULL,
+  "f_District" varchar(255) NOT NULL,
+  "f_Ward" varchar(255) NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of Places
+-- ----------------------------
+BEGIN;
+
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Ba Đình', 'Phường Phúc Xá');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Ba Đình', 'Phường Trúc Bạch');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Ba Đình', 'Phường Vĩnh Phúc');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Ba Đình', 'Phường Cống Vị');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Ba Đình', 'Phường Liễu Giai');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Hoàn Kiếm', 'Phường Phúc Tân');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Hoàn Kiếm', 'Phường Đồng Xuân');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Hoàn Kiếm', 'Phường Hàng Mã');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Hoàn Kiếm', 'Phường Hàng Buồm');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Hoàn Kiếm', 'Phường Hàng Đào');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Tây Hồ', 'Phường Phú Thượng');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Tây Hồ', 'Phường Nhật Tân');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Tây Hồ', 'Phường Tứ Liên');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Tây Hồ', 'Phường Quảng An');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Tây Hồ', 'Phường Xuân La');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Long Biên', 'Phường Thượng Thanh');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Long Biên', 'Phường Ngọc Thụy');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Long Biên', 'Phường Giang Biên');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Long Biên', 'Phường Đức Giang');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Long Biên', 'Phường Việt Hưng');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Cầu Giấy', 'Phường Nghĩa Đô');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Cầu Giấy', 'Phường Nghĩa Tân');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Cầu Giấy', 'Phường Mai Dịch');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Cầu Giấy', 'Phường Dịch Vọng');
+INSERT INTO "Places"
+VALUES('Thành phố Hà Nội', 'Quận Cầu Giấy', 'Phường Dịch Vọng Hậu');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận 1', 'Phường Tân Định');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận 2', 'Phường Đa Kao');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận 3', 'Phường Bến Nghé');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận 4', 'Phường Bến Thành');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận 5', 'Phường Nguyễn Thái Bình');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Thủ Đức', 'Phường Linh Xuân');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Thủ Đức', 'Phường Bình Chiểu');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Thủ Đức', 'Phường Linh Trung');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Thủ Đức', 'Phường Tam Bình');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Thủ Đức', 'Phường Tam Phú');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Gò Vấp', 'Phường 15');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Gò Vấp', 'Phường 13');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Gò Vấp', 'Phường 17');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Gò Vấp', 'Phường 6');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Gò Vấp', 'Phường 16');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 13');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 11');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 27');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 26');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Bình Thạnh', 'Phường 12');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Tân Bình', 'Phường 02');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Tân Bình', 'Phường 04');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Tân Bình', 'Phường 12');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Tân Bình', 'Phường 13');
+INSERT INTO "Places"
+VALUES('Thành phố Hồ Chí Minh', 'Quận Tân Bình', 'Phường 01');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Liên Chiểu', 'Phường Hòa Hiệp Bắc');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Liên Chiểu', 'Phường Hòa Hiệp Nam');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Liên Chiểu', 'Phường Hòa Khánh Bắc');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Liên Chiểu', 'Phường Hòa Khánh Nam');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Liên Chiểu', 'Phường Hòa Minh');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Thanh Khê', 'Phường Tam Thuận');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Thanh Khê', 'Phường Thanh Khê Tây');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Thanh Khê', 'Phường Thanh Khê Đông');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Thanh Khê', 'Phường Xuân Hà');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Thanh Khê', 'Phường Tân Chính');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Hải Châu', 'Phường Thanh Bình');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Hải Châu', 'Phường Thuận Phước');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Hải Châu', 'Phường Thạch Thang');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Hải Châu', 'Phường Hải Châu  I');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Hải Châu', 'Phường Hải Châu II');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Sơn Trà', 'Phường Mân Thái');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Sơn Trà', 'Phường An Hải Bắc');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Sơn Trà', 'Phường Phước Mỹ');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Sơn Trà', 'Phường An Hải Tây');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Sơn Trà', 'Phường An Hải Đông');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Cẩm Lệ', 'Phường Khuê Trung');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Cẩm Lệ', 'Phường Hòa Phát');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Cẩm Lệ', 'Phường Hòa An');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Cẩm Lệ', 'Phường Hòa Thọ Tây');
+INSERT INTO "Places"
+VALUES('Thành phố Đà Nẵng', 'Quận Cẩm Lệ', 'Phường Hòa Thọ Đông');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hồng Bàng', 'Phường Quán Toan');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hồng Bàng', 'Phường Hùng Vương');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hồng Bàng', 'Phường Sở Dầu');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hồng Bàng', 'Phường Thượng Lý');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hồng Bàng', 'Phường Hạ Lý');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Ngô Quyền', 'Phường Máy Chai');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Ngô Quyền', 'Phường Máy Tơ');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Ngô Quyền', 'Phường Vạn Mỹ');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Ngô Quyền', 'Phường Cầu Tre');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Ngô Quyền', 'Phường Lạc Viên');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Lê Chân', 'Phường Cát Dài');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Lê Chân', 'Phường An Biên');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Lê Chân', 'Phường Lam Sơn');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Lê Chân', 'Phường An Dương');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Lê Chân', 'Phường Trần Nguyên Hãn');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hải An', 'Phường Đông Hải 1');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hải An', 'Phường Đông Hải 2');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hải An', 'Phường Đằng Lâm');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hải An', 'Phường Thành Tô');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Hải An', 'Phường Đằng Hải');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Kiến An', 'Phường Quán Trữ');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Kiến An', 'Phường Lãm Hà');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Kiến An', 'Phường Đồng Hoà');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Kiến An', 'Phường Bắc Sơn');
+INSERT INTO "Places"
+VALUES('Thành phố Hải Phòng', 'Quận Kiến An', 'Phường Nam Sơn');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ninh Kiều', 'Phường Cái Khế');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ninh Kiều', 'Phường An Hòa');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ninh Kiều', 'Phường Thới Bình');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ninh Kiều', 'Phường An Nghiệp');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ninh Kiều', 'Phường An Cư');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ô Môn', 'Phường Châu Văn Liêm');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ô Môn', 'Phường Thới Hòa');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ô Môn', 'Phường Thới Long');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ô Môn', 'Phường Long Hưng');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Ô Môn', 'Phường Thới An');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Bình Thuỷ', 'Phường Bình Thủy');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Bình Thuỷ', 'Phường Trà An');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Bình Thuỷ', 'Phường Trà Nóc');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Bình Thuỷ', 'Phường Thới An Đông');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Bình Thuỷ', 'Phường An Thới');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Cái Răng', 'Phường Lê Bình');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Cái Răng', 'Phường Hưng Phú');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Cái Răng', 'Phường Hưng Thạnh');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Cái Răng', 'Phường Ba Láng');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Cái Răng', 'Phường Thường Thạnh');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Thốt Nốt', 'Phường Thốt Nốt');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Thốt Nốt', 'Phường Thới Thuận');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Thốt Nốt', 'Phường Thuận An');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Thốt Nốt', 'Phường Tân Lộc');
+INSERT INTO "Places"
+VALUES('Thành phố Cần Thơ', 'Quận Thốt Nốt', 'Phường Trung Nhứt');
+
+COMMIT;
+
