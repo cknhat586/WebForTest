@@ -1,4 +1,5 @@
 const data = require('../connections/rawData');
+Object.freeze(data);
 
 class AdminController {
 
@@ -42,7 +43,18 @@ class AdminController {
     }
 
     editHospitalGET(req, res) {
-        return res.render('admin/editHospital');
+        const crrHospitalName = req.query.name;
+        const db_data = data.hospitalList;
+        let crrHospital;
+        for (let i = 0; i < db_data.length; i++) {
+            if (db_data[i].f_Name == crrHospitalName) {
+                crrHospital = db_data[i];
+                break;
+            }
+        }
+        return res.render('admin/editHospital', {
+            hospital: crrHospital
+        });
     }
 
     managerHistoryGET(req, res) {
@@ -61,7 +73,8 @@ class AdminController {
     }
 
     hospitalListGET(req, res) {
-        let list = data.hospitalList;
+        const hospitalList = data.hospitalList;
+        let list = hospitalList;
         for (let i = 0; i < list.length; i++) {
             list[i].f_Current = (list[i].f_Current).toLocaleString();
             list[i].f_Max = (list[i].f_Max).toLocaleString();

@@ -1,4 +1,4 @@
-<div id="addManagerForm" class="card mx-auto" style="margin-top: 20px;">
+<div id="addHospitalForm" class="card mx-auto" style="margin-top: 20px;">
     <div class="card-header text-center text-light bg-primary fs-5">ADD HOSPITAL</div>
     <div class="card-body">
         <form class="row g-2" method="post">
@@ -10,13 +10,16 @@
                 <label class="form-label">Địa chỉ:</label>
                 <input name="address" type="text" class="form-control" placeholder="Địa chỉ">
             </div>
-            <div class="col-12">
+            <div class="d-flex col-12 justify-content-between">
+                <div class="col-5">
                 <label class="form-label">Sức chứa:</label>
                 <input name="max" type="number" class="form-control" placeholder="Sức chứa">
             </div>
-            <div class="col-12">
+            <div class="col-2 text-center fs-3 align-self-end text-muted">/</div>
+            <div class="col-5">
                 <label class="form-label">Hiện tại:</label>
                 <input name="current" type="number" class="form-control" placeholder="Hiện tại">
+            </div>
             </div>
             <div class="col-12 mx-auto text-center mt-4">
                 <button type="submit" class="btn btn-primary me-2">Confirm</button>
