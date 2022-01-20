@@ -1,0 +1,26 @@
+-- ----------------------------
+-- Table structure for Users
+-- ----------------------------
+DROP TABLE IF EXISTS "Users";
+CREATE TABLE "Users" (
+  "f_ID" int4 NOT NULL,
+  "f_Username" varchar(50) NOT NULL,
+  "f_Password" varchar(255) NOT NULL,
+  "f_Name" varchar(50),
+  "f_Email" varchar(50),
+  "f_DOB" timestamp,
+  "f_Permission" int4
+)
+;
+
+-- ----------------------------
+-- Records of Users
+-- ----------------------------
+BEGIN;
+INSERT INTO "Users" VALUES (1, 'user1', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', 'Cao Kim Nhat', 'ckn@gmail.com', '2014-02-26 00:00:00.000', 0);
+
+COMMIT;
+-- ----------------------------
+-- Primary Key structure for table Users
+-- ----------------------------
+ALTER TABLE "Users" ADD CONSTRAINT "PK__Users__2910CFA5E0B78CF8" PRIMARY KEY ("f_ID") WITH (fillfactor=0);
