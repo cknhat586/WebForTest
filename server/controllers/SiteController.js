@@ -1,7 +1,7 @@
 class SiteController {
 
     index(req, res) {
-        res.redirect('login');
+        res.redirect('/login');
     }
 }
 

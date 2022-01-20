@@ -4,8 +4,14 @@
 #addUserForm {
   width: 50%; }
 
+#addManagerForm {
+  width: 25%; }
+
 #managerHistoryTable {
   width: 70%; }
 
 #managerListTable {
   width: 70%; }
+
+#hospitalListTable {
+  width: 80%; }

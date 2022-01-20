@@ -12,9 +12,9 @@ const INVALID_PASSWORD_NOTIFY = 'Invalid Password!';
 module.exports = app => {
     passport.use(new LocalStrategy(
         async (username, password, done) => {
-            console.log('Start Local Strategy');
-            console.log('Username:', username);
-            console.log('Password:', password);
+            console.log('Start Passport: Local Strategy');
+            // console.log('Username:', username);
+            // console.log('Password:', password);
             let user;
             try {
                 user = await userModel.getUserByName(username);

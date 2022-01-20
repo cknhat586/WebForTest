@@ -1,7 +1,9 @@
+const rawData = require('../connections/rawData');
+
 class UserController {
 
     indexGET(req, res) {
-        res.render('user/dashboard', { layout: "dashboard", activeDashboard: true} );
+        res.redirect('/user/dashboard');
     }
 
     indexPOST(req, res) {
@@ -13,7 +15,13 @@ class UserController {
     }
 
     info(req, res) {
-        res.render('user/info', { layout: "dashboard", activeUser: true });
+        const userData = rawData.userInfo;
+        console.log(userData);
+        res.render('user/info', { 
+            layout: "dashboard",
+            data: userData,
+            activeUser: true 
+        });
     }
 
     medicine(req, res) {

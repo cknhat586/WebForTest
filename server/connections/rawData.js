@@ -45,7 +45,47 @@ const managerList = [
     },
 ]
 
+const userInfo = {
+    f_ID: 2,
+    f_Username: '206574213',
+    f_Fullname: 'Nguyen Van A',
+    f_CMND: '206574213',
+    f_YOB: '2001',
+    f_STD: '0903966423',
+    f_Address: '123 Phan Tan Trung, phuong Hoai An, quan Tran Bac, thanh pho Ho Chi Minh',
+    f_State: 'F1',
+    f_Hospital: 'Benh vien Hoa Huong, phuong Hoai An, quan Tran Bac, thanh pho Ho Chi Minh'
+}
+
+const hospitalList = [
+    {
+        f_ID: 1,
+        f_Name: 'Benh vien 1',
+        f_Address: '123 ABC',
+        f_Max: 50000,
+        f_Current: 13565
+    },
+
+    {
+        f_ID: 2,
+        f_Name: 'Benh vien 2',
+        f_Address: '123 DEF',
+        f_Max: 20000,
+        f_Current: 16754
+    },
+
+    {
+        f_ID: 3,
+        f_Name: 'Benh vien 3',
+        f_Address: '123 GHI',
+        f_Max: 200000000,
+        f_Current: 1976422
+    },
+]
+
 module.exports = {
+    hospitalList: hospitalList,
+    userInfo: userInfo,
     managerList: managerList,
     managerActionHistory: managerActionHistory
 }

@@ -4,6 +4,9 @@ const router = express.Router();
 const siteController = require('../controllers/SiteController');
 const accountController = require('../controllers/AccountController');
 
+router.use('/logout', accountController.logout);
+
+
 router.get('/login', accountController.signinGET);
 
 router.get('/signup', accountController.signupGET);

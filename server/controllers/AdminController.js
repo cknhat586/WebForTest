@@ -4,7 +4,7 @@ class AdminController {
 
     indexGET(req, res) {
         console.log('admin home')
-        res.render('admin/adminHome');
+        return res.render('admin/adminHome');
     }
 
     managerListGET(req, res) {
@@ -23,14 +23,26 @@ class AdminController {
                     break;
                 }
             }
-            res.redirect('managerList', '200', {
+            return res.redirect('/admin/managerList', '200', {
                 list: newList
             });
         } else {
-            res.render('admin/managerList', {
+            return res.render('admin/managerList', {
                 list: managerList
             });
         }
+    }
+
+    addManagerGET(req, res) {
+        return res.render('admin/addManager');
+    }
+
+    addHospitalGET(req, res) {
+        return res.render('admin/addHospital');
+    }
+
+    editHospitalGET(req, res) {
+        return res.render('admin/editHospital');
     }
 
     managerHistoryGET(req, res) {
@@ -42,14 +54,33 @@ class AdminController {
             history[i].f_Date = (new Date(history[i].f_Date)).toLocaleString();
         }
 
-        res.render('admin/managerHistory', {
+        return res.render('admin/managerHistory', {
             manager: managerName,
             history: history
         });
     }
 
     hospitalListGET(req, res) {
-        res.render('admin/hospitalList');
+        let list = data.hospitalList;
+        for (let i = 0; i < list.length; i++) {
+            list[i].f_Current = (list[i].f_Current).toLocaleString();
+            list[i].f_Max = (list[i].f_Max).toLocaleString();
+        }
+        return res.render('admin/hospitalList', {
+            list: list
+        });
+    }
+
+    addManagerPOST(req, res) {
+        return res.render('admin/addManager');
+    }
+
+    addHospitalPOST(req, res) {
+        return res.render('admin/addHospital');
+    }
+
+    editHospitalPOST(req, res) {
+        return res.render('admin/editHospital');
     }
 }
 

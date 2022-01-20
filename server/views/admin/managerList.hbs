@@ -11,13 +11,25 @@
         <path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0v1z" />
         <path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5z" />
     </symbol>
+    <symbol id="person-plus" viewBox="0 0 16 16">
+        <path d="M6 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H1s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C9.516 10.68 8.289 10 6 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+        <path fill-rule="evenodd" d="M13.5 5a.5.5 0 0 1 .5.5V7h1.5a.5.5 0 0 1 0 1H14v1.5a.5.5 0 0 1-1 0V8h-1.5a.5.5 0 0 1 0-1H13V5.5a.5.5 0 0 1 .5-.5z"/>
+    </symbol>
 </svg>
 
 <table id="managerListTable" class="table table-striped table-bordered caption-top align-middle mx-auto">
-    <caption>List Manager</caption>
+    <caption>
+        <div class="d-flex justify-content-between align-items-center">
+            <a><b>Managers List</b></a>
+            <a class="btn btn-warning me-2" style="font-weight: 550;" href="/admin/addManager">
+                <svg class="bi" width="24" height="24"><use xlink:href="#person-plus"/></svg>
+                New Manager
+            </a>
+        </div>
+    </caption>
     <thead>
         <tr class="bg-info text-center">
-            <th scope="col" class="col-1">No.</th>
+            <th scope="col" class="col-1">ID</th>
             <th scope="col" class="col-3">Username</th>
             <th scope="col" class="col-5">Fullname</th>
             <th scope="col" class="col-2">Action</th>
@@ -31,12 +43,12 @@
             <td>{{this.f_Username}}</td>
             <td>{{this.f_Fullname}}</td>
             <td class="text-center">
-                {{#isEqual this.f_isLocked true}}
-                <a class="btn" href="/admin/managerList?username={{this.f_Username}}&command=unlock">
+                {{#isEqual this.f_isLocked false}}
+                <a class="btn" href="/admin/managerList?username={{this.f_Username}}&command=lock">
                     <svg class="bi" width="24" height="24"><use xlink:href="#unlock"/></svg>
                 </a>
                 {{else}}
-                <a class="btn" href="/admin/managerList?username={{this.f_Username}}&command=lock">
+                <a class="btn" href="/admin/managerList?username={{this.f_Username}}&command=unlock">
                     <svg class="bi" width="24" height="24"><use xlink:href="#lock"/></svg>
                 </a>
                 {{/isEqual}}
@@ -50,5 +62,5 @@
     {{/if}}
 </table>
 <div class="text-center">
-    <a class="btn btn-primary" href="/admin">BACK</a>
+    <a class="btn btn-primary" style="font-weight: 550;" href="/admin">BACK</a>
 </div>
