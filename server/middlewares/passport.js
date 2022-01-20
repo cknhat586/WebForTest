@@ -1,25 +1,39 @@
-const passport = require('passport')
-    , LocalStrategy = require('passport-local').Strategy;
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const bcrypt = require('../middlewares/bcrypt');
 
 const userModel = require('../models/User');
 
-const ACCOUNT_NOT_EXIST_NOTI = 'Account does not exist!';
-const INVALID_PASSWORD_NOTI = 'Invalid Password!';
+const userPasswordField = 'f_Password';
+
+const ACCOUNT_NOT_EXIST_NOTIFY = 'Account does not exist!';
+const INVALID_PASSWORD_NOTIFY = 'Invalid Password!';
 
 module.exports = app => {
     passport.use(new LocalStrategy(
         async (username, password, done) => {
-            console.log('get in local strategy');
-            console.log('Username', username);
-            console.log('Password', password);
+            console.log('Start Passport: Local Strategy');
+            // console.log('Username:', username);
+            // console.log('Password:', password);
             let user;
             try {
                 user = await userModel.getUserByName(username);
-                if (!user) { return done(null, false, { message: ACCOUNT_NOT_EXIST_NOTI }); } 
+                if (!user) {
+                    console.log('Passport Auth: Account does not exist!');
+                    return done(null, false, {
+                        message: ACCOUNT_NOT_EXIST_NOTIFY
+                    });
+                }
 
-                const auth = await userModel.auth(username, password);
-                if (!auth) { return done(null, false, { message: INVALID_PASSWORD_NOTI }); }
+                const auth = bcrypt.auth(user[userPasswordField], password);
+                if (!auth) {
+                    console.log('Passport Auth: Invalid Password!');
+                    return done(null, false, {
+                        message: INVALID_PASSWORD_NOTIFY
+                    });
+                }
                 
+                console.log('Passport Auth: Login successfully!');
                 return done(null, user);
             } catch (error) {
                 return done(error);
@@ -27,10 +41,10 @@ module.exports = app => {
         }
     ));
 
-    passport.serializeUser(function(user, done) {
+    passport.serializeUser(function (user, done) {
         done(null, user);
     });
-      
+
     passport.deserializeUser(async (user, done) => {
         try {
             const muser = await userModel.getUserByName(user.f_Username);

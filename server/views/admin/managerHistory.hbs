@@ -1,0 +1,25 @@
+<table id="managerHistoryTable" class="table table-striped table-bordered caption-top align-middle mx-auto">
+    <caption>Action history of manager{{#if manager}}: <b>{{manager}}</b>{{/if}}
+    </caption>
+    <thead>
+        <tr class="bg-info text-center">
+            <th scope="col" class="col-1">ID</th>
+            <th scope="col" class="col-8">Action</th>
+            <th scope="col" class="col-3">Time</th>
+        </tr>
+    </thead>
+    {{#if history}}
+    <tbody>
+        {{#each history}}
+        <tr>
+            <th scope="row" class="text-center">{{this.f_ID}}</th>
+            <td>{{this.f_Action}}</td>
+            <td class="text-center">{{this.f_Date}}</td>
+        </tr>
+        {{/each}}
+    </tbody>
+    {{/if}}
+</table>
+<div class="text-center">
+    <a class="btn btn-primary" style="font-weight: 550;" href="/admin/managerList">BACK</a>
+</div>

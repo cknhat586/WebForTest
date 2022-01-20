@@ -3,27 +3,24 @@ const router = express.Router();
 
 const siteController = require("../controllers/SiteController");
 const normalUserController = require("../controllers/NormalUserController");
+const accountController = require("../controllers/AccountController");
 
-router.get("/", siteController.indexGET);
+router.use("/logout", accountController.logout);
 
-router.get("/dashboard", siteController.dashboard);
+router.get("/login", accountController.signinGET);
 
-router.get("/user", siteController.user);
+router.get("/signup", accountController.signupGET);
 
-router.get("/location", siteController.location);
+router.post("/login", accountController.signinPOST);
 
-router.get("/food", siteController.food);
-
-router.get("/medicine", siteController.medicine);
-
-router.post("/", siteController.indexPOST);
-
-router.post("/login", siteController.indexPOST);
+router.post("/signup", accountController.signupPOST);
 
 //----------------
 router.get("/profile", normalUserController.user);
 router.get("/history", normalUserController.history);
 router.get("/necessities", normalUserController.necessities);
 router.get("/payment", normalUserController.payment);
+
+router.use("/", siteController.index);
 
 module.exports = router;
