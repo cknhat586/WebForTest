@@ -330,4 +330,33 @@ INSERT INTO "Relevants" VALUES ('596600534','295012958');
 
 COMMIT;
 
+-- ----------------------------
+-- Table structure for Hospitals
+-- ----------------------------
+DROP TABLE IF EXISTS "Hospitals";
+CREATE TABLE "Hospitals" (
+  "f_ID" int4 NOT NULL,
+  "f_Name" varchar(50) NOT NULL,
+  "f_Current" int4 NOT NULL,
+  "f_Max" int4 NOT NULL,
+  "f_Address" varchar(255)
+)
+;
+
+-- ----------------------------
+-- Records of Hospitals
+-- ----------------------------
+BEGIN;
+INSERT INTO "Hospitals" VALUES (1, 'Bệnh viên đa khoa thành phố Hồ Chí Minh', 20840, 35000, '352 Nguyễn Thái Học, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh');
+INSERT INTO "Hospitals" VALUES (2, 'Bệnh viên Chợ Rẫy', 23034, 45000, '356 Phan Đình Phùng, Phường 15, Quận Gò Vấp, Thành phố Hồ Chí Minh');
+INSERT INTO "Hospitals" VALUES (3, 'Bệnh viên Việt Pháp', 56760, 100000, '567 Lê Lợi, Phường Vĩnh Phúc, Quận Ba Đình, Thành phố Hà Nội');
+INSERT INTO "Hospitals" VALUES (4, 'Bệnh viên đa khoa thành phố Nhi Đồng', 45334, 60000, '235 Lê Quí Đôn, Phường Lạc Viên, Quận Ngô Quyền, Thành phố Hải Phòng');
+INSERT INTO "Hospitals" VALUES (5, 'Bệnh viên Từ Dũ', 54342, 60000, '172 Trần Quốc Tuấn, Phường An Hòa, Quận Ninh Kiều, Thành phố Cần Thơ');
+INSERT INTO "Hospitals" VALUES (6, 'Bệnh viên Minh Thiện', 33445, 35000, '61 Cao Thái Tổ, Phường Bắc Sơn, Quận Kiến An, Thành phố Hải Phòng');
+INSERT INTO "Hospitals" VALUES (7, 'Bệnh viên đa khoa thành phố Đà Nẵng', 125686, 200000, '452 Hùng Vương, Phường Thuận Phước, Quận Hải Châu, Thành phố Đà Nẵng');
+
+COMMIT;
+
+
+
 
