@@ -307,3 +307,27 @@ VALUES('Thành phố Cần Thơ', 'Quận Thốt Nốt', 'Phường Trung Nhứt
 
 COMMIT;
 
+-- ----------------------------
+-- Table structure for Relevants
+-- ----------------------------
+DROP TABLE IF EXISTS "Relevants";
+CREATE TABLE "Users" (
+  "f_Username1" varchar(12) NOT NULL,
+  "f_Username2" varchar(12) NOT NULL
+)
+;
+
+-- ----------------------------
+-- Records of Relevants
+-- ----------------------------
+BEGIN;
+INSERT INTO "Relevants" VALUES ('203534936','421255321');
+INSERT INTO "Relevants" VALUES ('203534936','596600534');
+INSERT INTO "Relevants" VALUES ('203534936','369151920');
+INSERT INTO "Relevants" VALUES ('596600534','429794005');
+INSERT INTO "Relevants" VALUES ('596600534','363218716');
+INSERT INTO "Relevants" VALUES ('596600534','295012958');
+
+COMMIT;
+
+
