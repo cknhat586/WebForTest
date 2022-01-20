@@ -2,6 +2,7 @@ const data = require('../connections/rawData');
 Object.freeze(data);
 
 const hostpitalModel = require('../models/Hospitals');
+const placeModel = require('../models/Places');
 
 class AdminController {
 
@@ -40,8 +41,36 @@ class AdminController {
         return res.render('admin/addManager');
     }
 
-    addHospitalGET(req, res) {
-        return res.render('admin/addHospital');
+    async addHospitalGET(req, res) {
+        const provinceList = await placeModel.getAllProvince();
+        const firstProvince = provinceList[0];
+        let remainProvinceList = [];
+        for (let i = 1; i < provinceList.length; i++) {
+            remainProvinceList.push(provinceList[i]);
+        }
+
+        const districtList = await placeModel.getDistrictByProvince(firstProvince);
+        const firstDistrict = districtList[0];
+        let remainDistrictList = [];
+        for (let i = 1; i < districtList.length; i++) {
+            remainDistrictList.push(districtList[i]);
+        }
+
+        const wardList = await placeModel.getWardByDistrict(firstDistrict);
+        const firstWard = wardList[0];
+        let remainWardList = [];
+        for (let i = 1; i < wardList.length; i++) {
+            remainWardList.push(wardList[i]);
+        }
+
+        return res.render('admin/addHospital', {
+            firstProvince: firstProvince,
+            provinceList: remainProvinceList,
+            firstDistrict: firstDistrict,
+            districtList: remainDistrictList,
+            firstWard: firstWard,
+            wardList: remainWardList
+        });
     }
 
     async editHospitalGET(req, res) {
@@ -74,7 +103,6 @@ class AdminController {
 
     async hospitalListGET(req, res) {
         const hospitalList = await hostpitalModel.getAll();
-        console.log(hospitalList);
         let list = hospitalList;
         for (let i = 0; i < list.length; i++) {
             list[i].f_Current = (list[i].f_Current).toLocaleString();

@@ -7,19 +7,69 @@
                 <input name="name" type="text" class="form-control" placeholder="Tên nơi điều trị">
             </div>
             <div class="col-12 mt-1">
-                <label class="form-label">Địa chỉ:</label>
-                <input name="address" type="text" class="form-control" placeholder="Địa chỉ">
+                <label class="form-label">Tỉnh, thành:</label>
+                {{#if provinceList}}
+                    <select id="selectProvince" class="form-select">
+                        <option selected value={{firstProvince}}>{{firstProvince}}</option>
+                    {{#each provinceList}}
+                        <option value={{this}}>{{this}}</option>
+                    {{/each}}
+                    </select>
+                {{else}}
+                    <select id="selectProvince" class="form-select">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                {{/if}}
+            </div>
+            <div class="col-12 mt-1">
+                <label class="form-label">Quận, huyện:</label>
+                {{#if districtList}}
+                    <select id="selectProvince" class="form-select">
+                        <option selected value={{firstDistrict}}>{{firstDistrict}}</option>
+                    {{#each districtList}}
+                        <option value={{this}}>{{this}}</option>
+                    {{/each}}
+                    </select>
+                {{else}}
+                    <select id="selectProvince" class="form-select">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                {{/if}}
+            </div>
+            <div class="col-12 mt-1">
+                <label class="form-label">Phường, xã:</label>
+                {{#if wardList}}
+                    <select id="selectProvince" class="form-select">
+                        <option selected value={{firstWard}}>{{firstWard}}</option>
+                    {{#each wardList}}
+                        <option value={{this}}>{{this}}</option>
+                    {{/each}}
+                    </select>
+                {{else}}
+                    <select id="selectProvince" class="form-select">
+                    <option selected>Open this select menu</option>
+                    <option value="1">One</option>
+                    <option value="2">Two</option>
+                    <option value="3">Three</option>
+                </select>
+                {{/if}}
             </div>
             <div class="d-flex col-12 justify-content-between">
                 <div class="col-5">
-                <label class="form-label">Sức chứa:</label>
-                <input name="max" type="number" class="form-control" placeholder="Sức chứa">
-            </div>
-            <div class="col-2 text-center fs-3 align-self-end text-muted">/</div>
-            <div class="col-5">
-                <label class="form-label">Hiện tại:</label>
-                <input name="current" type="number" class="form-control" placeholder="Hiện tại">
-            </div>
+                    <label class="form-label">Hiện tại:</label>
+                    <input name="current" type="number" class="form-control" placeholder="Hiện tại">
+                </div>
+                <div class="col-2 text-center fs-3 align-self-end text-muted">/</div>
+                <div class="col-5">
+                    <label class="form-label">Sức chứa:</label>
+                    <input name="max" type="number" class="form-control" placeholder="Sức chứa">
+                </div>
             </div>
             <div class="col-12 mx-auto text-center mt-4">
                 <button type="submit" class="btn btn-primary me-2">Confirm</button>
