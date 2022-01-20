@@ -21,7 +21,7 @@ class AccountController {
 
     signinGET(req, res) {
         if (req.cookies.token) {
-            res.redirect('/user/dashboard');
+            res.redirect('/user/info');
         }
         res.render('login');
     }

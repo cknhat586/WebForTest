@@ -3,18 +3,18 @@ const router = express.Router();
 
 const userController = require('../controllers/UserController');
 
-router.get('/dashboard', userController.dashboard);
 
 router.get('/info', userController.info);
 
-router.get('/location', userController.location);
-
-router.get('/food', userController.food);
+router.get('/payment', userController.payment);
 
 router.get('/medicine', userController.medicine);
 
+router.use('/history', userController.history);
+
 router.get('/', userController.indexGET);
 
+router.get('/cart', userController.cartGET);
 
 router.post('/', userController.indexPOST);
 

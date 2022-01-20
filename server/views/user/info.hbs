@@ -1,1 +1,26 @@
-user
+<div id="userInfo" class="container fs-5 mx-3">
+    <div class="mb-1 row">
+        <label class="mlabel col-2 col-form-label">Họ Tên:</label>
+        <label class="col-2 col-form-label">{{user.f_Fullname}}</label>
+    </div>
+    <div class="mb-1 row">
+        <label class="mlabel col-2 col-form-label">CMND:</label>
+        <label class="col-2 col-form-label">{{user.f_CMND}}</label>
+    </div>
+    <div class="mb-1 row">
+        <label class="mlabel col-2 col-form-label">Năm sinh:</label>
+        <label class="col-2 col-form-label">{{user.f_YOB}}</label>
+    </div>
+    <div class="mb-1 row">
+        <label class="mlabel col-2 col-form-label">Địa chỉ:</label>
+        <label class="col-5 col-form-label">{{user.f_Address}}</label>
+    </div>
+    <div class="mb-1 row">
+        <label class="mlabel col-2 col-form-label">Trạng thái:</label>
+        <label class="col-2 col-form-label">{{user.f_State}}</label>
+    </div>
+    <div class="mb-1 row">
+        <label class="mlabel col-2 col-form-label">Nơi cách ly:</label>
+        <label class="col-5 col-form-label">{{hospital.f_Name}}: {{hospital.f_Address}}</label>
+    </div>
+</div>

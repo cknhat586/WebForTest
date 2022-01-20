@@ -21,3 +21,13 @@
 
 #editHospitalForm {
   width: 40%; }
+
+#userInfo {
+  font-weight: 450; }
+
+.mlabel {
+  font-weight: 600; }
+
+.medicineCard {
+  width: 100%;
+  height: 50%; }

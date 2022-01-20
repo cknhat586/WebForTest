@@ -1,1 +1,17 @@
-medicine
+<div class="row row-cols-1 row-cols-md-5 g-4">
+    {{#if list}}
+        {{#each list}}
+            <div class="col">
+                <div class="medicineCard card">
+                    <img src="/images/user.png" class="card-img-top p-2">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{this.f_Name}}</h5>
+                        <p class="card-text">{{this.f_Description}}</p>
+                        <p class="card-text">Price: <b style="font-weight: 600;">{{this.f_Price}}</b> VND</p>
+                        <div class="text-center"><a class="btn btn-success">ADD TO CART</a></div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    {{/if}}
+</div>
