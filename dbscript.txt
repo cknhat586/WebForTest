@@ -18,6 +18,8 @@ CREATE TABLE "Users" (
 )
 ;
 
+
+
 -- ----------------------------
 -- Records of Users
 -- ----------------------------
@@ -37,6 +39,24 @@ VALUES (6, '363218716', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBK
 INSERT INTO "Users" 
 VALUES (7, '295012958', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '295012958', 'Cao Kiến Ðức', '0954733213', 2001, 2, '135 Hùng Vương, Phường Thuận Phước, Quận Hải Châu, Thành phố Đà Nẵng', 'Bệnh viên đa khoa thành phố Đà Nẵng', 0, 0);
 
+COMMIT;
+
+-- ----------------------------
+-- Table wallets 
+-- ----------------------------
+
+DROP TABLE IF EXISTS "wallets";
+CREATE TABLE "wallets" (
+  "id" varchar(50) NOT NULL,
+  "user_id" varchar(50) NOT NULL,
+  "balance" int4 NOT NULL,
+  "debit" int4 NOT NULL,
+  "token" varchar(50) NOT NULL
+);
+
+BEGIN;
+INSERT INTO "wallets"
+VALUES ('0300220452', '203534936', 0, 0, '');
 COMMIT;
 
 -- ----------------------------

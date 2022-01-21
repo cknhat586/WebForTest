@@ -17,12 +17,7 @@ module.exports = {
     },
 
     add: async hospital => {
-        const res = await db.add(tbName, hospital);
-        return res;
-    },
-
-    update: async (name, columnArray, valueArray) => {
-        const res = await db.update(tbName, nameFieldName, name, columnArray, valueArray);
+        const res = await db.add(tbName, user);
         return res;
     }
 }

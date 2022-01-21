@@ -23,8 +23,8 @@
                 </div>
             </div>
             <div class="mb-3 input-group">
-                <label for="inputPassword" class="col-sm-4 col-form-label">Surplus</label>
-                <input readonly type="text" class="form-control ms-2" value="{{payment.surplus}}">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Balance</label>
+                <input readonly type="text" class="form-control ms-2" value="{{payment.balance}}">
 
                 {{#if connect}}
                 <a class="btn btn-primary" data-bs-toggle="modal" href="#rechargeModalToggle" role="button">+</a>
@@ -83,8 +83,8 @@
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label">Surplus</label>
-                                    <label class="col-sm-9 col-form-label">{{payment.surplus}}</label>
+                                    <label class="col-sm-3 col-form-label">Balance</label>
+                                    <label class="col-sm-9 col-form-label">{{payment.balance}}</label>
                                 </div>
                                 <div class="mb-3 rows">
                                     <label class="col-sm-3 col-form-label">
@@ -109,7 +109,7 @@
 
                             {{else}}
 
-                            {{#ifCond payment.surplus ">" payment.debit}}
+                            {{#ifCond payment.balance ">" payment.debit}}
                             <div class="modal-footer">
                                 <button class="btn btn-success" data-bs-toggle="modal">Confirm</button>
                             </div>
@@ -122,7 +122,7 @@
                                     aria-label="Danger:">
                                     <use xlink:href="#exclamation-triangle-fill" />
                                 </svg>
-                                <span>Surplus is not enough!</span>
+                                <span>Balance is not enough!</span>
                             </div>
                             {{/ifCond}}
 
@@ -138,7 +138,7 @@
             <div class="mb-3 ">
 
 
-                {{#if connect}}
+                {{#if payment.token}}
                 <div class="alert alert-success d-flex align-items-center" role="alert">
                     <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:">
                         <use xlink:href="#check-circle-fill" />
@@ -179,46 +179,20 @@
                                     <label for="idWalletInput" class="form-label">ID</label>
                                     <input type="text" class="form-control" id="idWalletInput" />
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button class="btn btn-primary" data-bs-target="#confirmLinkModalToggle"
-                                    data-bs-toggle="modal">Next</button>
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal fade" id="confirmLinkModalToggle" aria-hidden="true"
-                    aria-labelledby="confirmLinkModalToggleLabel" tabindex="-1">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="confirmLinkModalToggleLabel">Confirm Wallet</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label">ID</label>
-                                    <label class="col-sm-9 col-form-label">{{payment.connect.id}}</label>
-                                </div>
-                                <div class="mb-3 row">
-                                    <label class="col-sm-3 col-form-label">Name</label>
-                                    <label class="col-sm-9 col-form-label">{{payment.connect.name}}</label>
-                                </div>
                                 <div class="mb-3">
                                     <label for="passwordWalletInput" class="form-label">Password</label>
                                     <input type="text" class="form-control" id="passwordWalletInput" />
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-primary" data-bs-target="#linkModalToggle"
-                                    data-bs-toggle="modal">Back</button>
-                                <button class="btn btn-success" data-bs-toggle="modal">Confirm</button>
+                                <button class="btn btn-primary" data-bs-target="#confirmLinkModalToggle"
+                                    data-bs-toggle="modal">Confirm</button>
+
                             </div>
                         </div>
                     </div>
                 </div>
+
 
             </div>
         </div>

@@ -2,28 +2,29 @@
 
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Full name</label>
-        <label class="col-sm-9 col-form-label">{{info.name}}</label>
+        <label class="col-sm-9 col-form-label">{{info.f_Fullname}}</label>
     </div>
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">ID</label>
-        <label class="col-sm-9 col-form-label">{{profile.id}}</label>
+        <label class="col-sm-9 col-form-label">{{info.f_CMND}}</label>
     </div>
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Birthday</label>
-        <label class="col-sm-9 col-form-label">{{profile.date_birth}}</label>
-    </div>
-    <div class="mb-3 row">
-        <label class="col-sm-3 col-form-label">Email</label>
-        <label class="col-sm-9 col-form-label">{{profile.email}}</label>
+        <label class="col-sm-9 col-form-label">{{info.f_YOB}}</label>
     </div>
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Phone</label>
-        <label class="col-sm-9 col-form-label">{{profile.phone}}</label>
+        <label class="col-sm-9 col-form-label">{{info.f_SDT}}</label>
     </div>
 
     <div class="mb-3 row">
         <label class="col-sm-3 col-form-label">Address</label>
-        <label class="col-sm-9 col-form-label">{{profile.address}}</label>
+        <label class="col-sm-9 col-form-label">{{info.f_Address}}</label>
+    </div>
+
+    <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Hospital</label>
+        <label class="col-sm-9 col-form-label">{{info.f_Hospital}}</label>
     </div>
 
     <div class="mb-3 input-group">
@@ -39,30 +40,49 @@
                         <h5 class="modal-title" id="exampleModalToggleLabel">Edit</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="mb-3 row">
-                            <label for="inputOldPassword" class="col-sm-4 col-form-label">Old password</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputOldPassword" />
+                    <form action="/changePassword" method="post">
+                        <div class="modal-body">
+
+                            <div class="mb-3 row">
+                                <label for="inputOldPassword" class="col-sm-4 col-form-label">Old password</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputOldPassword" name="old_password" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="inputNewPassword" class="col-sm-4 col-form-label">New password</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputNewPassword" />
+                            <div class="mb-3 row">
+                                <label for="inputNewPassword" class="col-sm-4 col-form-label" name="new_password">New
+                                    password</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputNewPassword" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="mb-3 row">
-                            <label for="inputconfirmPassword" class="col-sm-4 col-form-label">Confirm
-                                password</label>
-                            <div class="col-sm-8">
-                                <input type="text" class="form-control" id="inputconfirmPassword" />
+                            <div class="mb-3 row">
+                                <label for="inputconfirmPassword" class="col-sm-4 col-form-label">Confirm
+                                    password</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="form-control" id="inputconfirmPassword"
+                                        name="confirm_password" />
+                                </div>
+
+                                {{#if success}}
+                                <div class="alert alert-success" role="alert">
+                                    Change success
+                                </div>
+                                {{/if}}
+                                {{#if fail}}
+                                <div class="alert alert-danger" role="alert">
+                                    Change fail!
+                                </div>
+                                {{/if}}
                             </div>
+
+
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button class="btn btn-success" data-bs-toggle="modal">OK</button>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success" data-bs-toggle="modal">OK</button>
+                        </div>
+
+                    </form>
                 </div>
             </div>
         </div>

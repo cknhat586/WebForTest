@@ -215,13 +215,17 @@ let data = {
     ],
   },
 };
+
+const host = "http://localhost:6868";
+
+const db = require("../connections/postgres");
 class NormalUserController {
   user(req, res) {
+    console.log(req.user);
     res.render("normal-user", {
       sideIndex: 0,
-      info: data.info,
-      noti: data.noti,
-      profile: data.profile,
+      info: req.user,
+      noti: [],
     });
   }
 
@@ -244,12 +248,15 @@ class NormalUserController {
     });
   }
 
-  payment(req, res) {
+  async payment(req, res) {
+    let wallet = await db.get("wallets", "user_id", req.user.f_CMND);
+
     res.render("normal-user", {
       sideIndex: 3,
-      info: data.info,
-      noti: data.noti,
-      payment: data.payment,
+      info: req.user,
+      noti: [],
+      payment: wallet[0],
+      host: host,
     });
   }
 
@@ -285,6 +292,53 @@ class NormalUserController {
       product: { ...product, price: sum },
       success: true,
     });
+  }
+
+  async changePassword(req, res) {
+    if (req.session.token) {
+      let user = req.user;
+
+      if (
+        req.body.old_password == "" ||
+        req.body.new_password == "" ||
+        req.body.conofirm_password == ""
+      ) {
+        res.render("normal-user", {
+          sideIndex: 0,
+          info: req.user,
+          noti: [],
+          fail: 1,
+        });
+        return;
+      } else {
+        let _oldPass = md5(req.body.old_password);
+        if (
+          req.body.new_password != req.body.confirm_password ||
+          user[0].password != _oldPass
+        ) {
+          res.render("normal-user", {
+            sideIndex: 0,
+            info: req.user,
+            noti: [],
+            fail: 1,
+          });
+          return;
+        } else {
+          let newPass = md5(req.body.new_password);
+          // db.update("users", "token", req.session.token, { password: newPass });
+
+          console.log(req.body);
+          res.render("normal-user", {
+            sideIndex: 0,
+            info: req.user,
+            noti: [],
+            success: 1,
+          });
+        }
+      }
+    } else {
+      res.redirect("/login");
+    }
   }
 }
 

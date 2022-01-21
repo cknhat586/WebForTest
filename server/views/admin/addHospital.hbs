@@ -7,16 +7,12 @@
                 <input name="name" type="text" class="form-control" placeholder="Tên nơi điều trị">
             </div>
             <div class="col-12 mt-1">
-                <label class="form-label">Địa chỉ:</label>
-                <input name="address" type="text" class="form-control" placeholder="Địa chỉ">
-            </div>
-            <div class="col-12 mt-1">
                 <label class="form-label">Tỉnh, thành:</label>
                 {{#if provinceList}}
-                    <select name="province" id="selectProvince" class="form-select">
-                        <option selected value='{{firstProvince}}'>{{firstProvince}}</option>
+                    <select id="selectProvince" class="form-select">
+                        <option selected value={{firstProvince}}>{{firstProvince}}</option>
                     {{#each provinceList}}
-                        <option value='{{this}}'>{{this}}</option>
+                        <option value={{this}}>{{this}}</option>
                     {{/each}}
                     </select>
                 {{else}}
@@ -31,14 +27,14 @@
             <div class="col-12 mt-1">
                 <label class="form-label">Quận, huyện:</label>
                 {{#if districtList}}
-                    <select name="district" id="selectDistrict" class="form-select">
-                        <option selected value='{{firstDistrict}}'>{{firstDistrict}}</option>
+                    <select id="selectProvince" class="form-select">
+                        <option selected value={{firstDistrict}}>{{firstDistrict}}</option>
                     {{#each districtList}}
-                        <option value='{{this}}'>{{this}}</option>
+                        <option value={{this}}>{{this}}</option>
                     {{/each}}
                     </select>
                 {{else}}
-                    <select id="selectDistrict" class="form-select">
+                    <select id="selectProvince" class="form-select">
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>
@@ -49,14 +45,14 @@
             <div class="col-12 mt-1">
                 <label class="form-label">Phường, xã:</label>
                 {{#if wardList}}
-                    <select name="ward" id="selectWard" class="form-select">
-                        <option selected value='{{firstWard}}'>{{firstWard}}</option>
+                    <select id="selectProvince" class="form-select">
+                        <option selected value={{firstWard}}>{{firstWard}}</option>
                     {{#each wardList}}
-                        <option value='{{this}}'>{{this}}</option>
+                        <option value={{this}}>{{this}}</option>
                     {{/each}}
                     </select>
                 {{else}}
-                    <select id="selectWard" class="form-select">
+                    <select id="selectProvince" class="form-select">
                     <option selected>Open this select menu</option>
                     <option value="1">One</option>
                     <option value="2">Two</option>

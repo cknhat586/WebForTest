@@ -22,6 +22,7 @@ router.get("/necessities", normalUserController.necessities);
 router.get("/payment", normalUserController.payment);
 router.get("/combo", normalUserController.combo);
 router.post("/combo", normalUserController.buyCombo);
+router.post("/changePassword", normalUserController.changePassword);
 
 router.use("/", siteController.index);
 

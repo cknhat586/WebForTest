@@ -28,10 +28,10 @@
         </div>
 
         <div>
-            <h1> {{info.name}}</h1>
+            <h1> {{info.f_Fullname}}</h1>
         </div>
-        <div class="alert alert-{{info.status.class}}" role="alert">
-            {{info.status.name}}
+        <div class="alert alert-{{#if info.f_State}}warning{{else}}danger{{/if}}" role="alert">
+            F{{info.f_State}}
         </div>
 
     </div>
