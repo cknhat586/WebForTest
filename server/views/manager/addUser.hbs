@@ -4,40 +4,40 @@
         <form class="row g-3" method="post">
             <div class="col-9">
                 <label class="form-label">Họ và Tên</label>
-                <input type="text" class="form-control" placeholder="Họ Tên đầy đủ">
+                <input name="fullname" type="text" class="form-control" placeholder="Họ Tên đầy đủ">
             </div>
             <div class="col-3">
                 <label class="form-label">Năm sinh</label>
-                <input type="number" class="form-control" placeholder="Năm sinh">
+                <input name="year" type="number" class="form-control" placeholder="Năm sinh">
             </div>
             <div class="col-7">
                 <label class="form-label">Số căn cước</label>
-                <input type="text" class="form-control" placeholder="Căn cước công dân">
+                <input name="cmnd" type="text" class="form-control" placeholder="Căn cước công dân">
             </div>
             <div class="col-5">
                 <label class="form-label">SDT</label>
-                <input type="email" class="form-control" placeholder="SDT">
+                <input name="sdt" type="text" class="form-control" placeholder="SDT">
             </div>
             <div class="col-12">
                 <label class="form-label">Địa chỉ liên lạc</label>
-                <input type="text" class="form-control" placeholder="Địa chỉ liên lạc">
+                <input name="address" type="text" class="form-control" placeholder="Địa chỉ liên lạc">
             </div>
             <div class="col-2">
                 <label class="form-label">Trạng thái</label>
-                <select class="form-select">
-                    <option selected>F0</option>
-                    <option>F1</option>
-                    <option>F2</option>
-                    <option>F3</option>
+                <select name="state" class="form-select">
+                    <option value=0 selected>F0</option>
+                    <option value=1>F1</option>
+                    <option value=2>F2</option>
+                    <option value=3>F3</option>
                 </select>
             </div>
             <div class="col-10">
                 <label class="form-label">Nơi điều trị</label>
-                <input type="text" class="form-control" placeholder="Nơi điều trị">
+                <input name="hospital" type="text" class="form-control" placeholder="Nơi điều trị">
             </div>
             <div class="col-12 mx-auto text-center">
                 <button type="submit" class="btn btn-primary me-2">Confirm</button>
-                <button type="button" class="btn btn-danger">Cancel</button>
+                <a class="btn btn-danger" href="/manager">Cancel</a>
             </div>
         </form>
     </div>

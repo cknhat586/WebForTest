@@ -3,6 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const route = require('./routes/index');
+const https = require('https');
+const fs = require('fs');
 
 const app = express();
 
@@ -23,6 +25,15 @@ require('./middlewares/express-handlebars')(app);
 require('./middlewares/passport')(app);
 
 route(app);
+
+// const server = https.createServer({
+//   key: fs.readFileSync(path.join(__dirname, '../certificates/localhost-key.pem')),
+//   cert: fs.readFileSync(path.join(__dirname, '../certificates/localhost.pem'))
+// }, app);
+
+// server.listen(PORT, () => {
+//   console.log(`Running port ${PORT}!!!!`);
+// });
 
 app.listen(PORT, function () {
   console.log(`Running port ${PORT}!!!!`);
