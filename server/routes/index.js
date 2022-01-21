@@ -10,9 +10,9 @@ const verifyToken = jwt.verifyToken;
 function route(app) {
   app.use("/api", apiRouter);
 
-  app.use("/admin", adminRouter);
+  app.use("/admin", verifyToken, adminRouter);
 
-  app.use("/manager", managerRouter);
+  app.use("/manager", verifyToken, managerRouter);
 
   app.use("/user", verifyToken, userRouter);
 
