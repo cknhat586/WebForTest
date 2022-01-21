@@ -13,6 +13,7 @@ CREATE TABLE "Users" (
   "f_State" int4 NOT NULL,
   "f_Address" varchar(255),
   "f_Hospital" varchar(50),
+  "f_Linked" int4 NOT NULL,
   "f_Permission" int4 NOT NULL
 )
 ;
@@ -22,19 +23,19 @@ CREATE TABLE "Users" (
 -- ----------------------------
 BEGIN;
 INSERT INTO "Users" 
-VALUES (1, '203534936', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '203534936', 'Nguyễn Thanh Hiếu', '0954733213', 1998, 0, '485 Nguyễn Thái Học, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh', 'Bệnh viên đa khoa thành phố Hồ Chí Minh', 0);
+VALUES (1, '203534936', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '203534936', 'Nguyễn Thanh Hiếu', '0954733213', 1998, 0, '485 Nguyễn Thái Học, Phường Linh Xuân, Quận Thủ Đức, Thành phố Hồ Chí Minh', 'Bệnh viên đa khoa thành phố Hồ Chí Minh', 0, 0);
 INSERT INTO "Users" 
-VALUES (2, '421255321', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '421255321', 'Vũ Phước Nhân', '0954733213', 1998, 0, '325 Phan Đình Phùng, Phường 15, Quận Gò Vấp, Thành phố Hồ Chí Minh', 'Bệnh viên Chợ Rẫy', 1);
+VALUES (2, '421255321', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '421255321', 'Vũ Phước Nhân', '0954733213', 1998, 1, '325 Phan Đình Phùng, Phường 15, Quận Gò Vấp, Thành phố Hồ Chí Minh', 'Bệnh viên Chợ Rẫy', 0, 0);
 INSERT INTO "Users" 
-VALUES (3, '596600534', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '596600534', 'Ung Phúc Thịnh', '0954733213', 1999, 0, '990 Lê Lợi, Phường Vĩnh Phúc, Quận Ba Đình, Thành phố Hà Nội', 'Bệnh viên Việt Pháp', 1);
+VALUES (3, '596600534', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '596600534', 'Ung Phúc Thịnh', '0954733213', 1999, 1, '990 Lê Lợi, Phường Vĩnh Phúc, Quận Ba Đình, Thành phố Hà Nội', 'Bệnh viên Việt Pháp', 0, 0);
 INSERT INTO "Users" 
-VALUES (4, '369151920', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '369151920', 'Nghiêm Thế Trung', '0954733213', 1997, 0, '319 Lê Quí Đôn, Phường Lạc Viên, Quận Ngô Quyền, Thành phố Hải Phòng', 'Bệnh viên đa khoa thành phố Nhi Đồng', 1);
+VALUES (4, '369151920', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '369151920', 'Nghiêm Thế Trung', '0954733213', 1997, 1, '319 Lê Quí Đôn, Phường Lạc Viên, Quận Ngô Quyền, Thành phố Hải Phòng', 'Bệnh viên đa khoa thành phố Nhi Đồng', 0, 0);
 INSERT INTO "Users" 
-VALUES (5, '429794005', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '429794005', 'Võ Thành Lợi', '0954733213', 1999, 0, '88 Trần Quốc Tuấn, Phường An Hòa, Quận Ninh Kiều, Thành phố Cần Thơ', 'Bệnh viên Từ Dũ', 2);
+VALUES (5, '429794005', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '429794005', 'Võ Thành Lợi', '0954733213', 1999, 2, '88 Trần Quốc Tuấn, Phường An Hòa, Quận Ninh Kiều, Thành phố Cần Thơ', 'Bệnh viên Từ Dũ', 0, 0);
 INSERT INTO "Users" 
-VALUES (6, '363218716', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '363218716', 'Nguyễn Lương Tài', '0954733213', 2000, 0, '52 Cao Thái Tổ, Phường Bắc Sơn, Quận Kiến An, Thành phố Hải Phòng', 'Bệnh viên Minh Thiện', 2);
+VALUES (6, '363218716', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '363218716', 'Nguyễn Lương Tài', '0954733213', 2000, 2, '52 Cao Thái Tổ, Phường Bắc Sơn, Quận Kiến An, Thành phố Hải Phòng', 'Bệnh viên Minh Thiện', 0, 0);
 INSERT INTO "Users" 
-VALUES (7, '295012958', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '295012958', 'Cao Kiến Ðức', '0954733213', 2001, 0, '135 Hùng Vương, Phường Thuận Phước, Quận Hải Châu, Thành phố Đà Nẵng', 'Bệnh viên đa khoa thành phố Đà Nẵng', 2);
+VALUES (7, '295012958', '$2b$10$mMtpxoXSS5OKTK0cvPPy/e5HJ5BiwuJjHxy0IvlNbS2ZSJBKPR982', '295012958', 'Cao Kiến Ðức', '0954733213', 2001, 2, '135 Hùng Vương, Phường Thuận Phước, Quận Hải Châu, Thành phố Đà Nẵng', 'Bệnh viên đa khoa thành phố Đà Nẵng', 0, 0);
 
 COMMIT;
 
