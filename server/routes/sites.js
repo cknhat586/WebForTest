@@ -20,6 +20,8 @@ router.get("/profile", normalUserController.user);
 router.get("/history", normalUserController.history);
 router.get("/necessities", normalUserController.necessities);
 router.get("/payment", normalUserController.payment);
+router.get("/combo", normalUserController.combo);
+router.post("/combo", normalUserController.buyCombo);
 
 router.use("/", siteController.index);
 
