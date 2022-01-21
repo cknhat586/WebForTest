@@ -47,7 +47,13 @@
         <div class="tab-content" style="width: 100%;">
             {{#ifCond sideIndex '==' 0}}{{>normal-user/profile}}{{/ifCond}}
             {{#ifCond sideIndex '==' 1}} {{>normal-user/history}}{{/ifCond}}
-            {{#ifCond sideIndex '==' 2}}{{>normal-user/necessities}}{{/ifCond}}
+            {{#ifCond sideIndex '==' 2}}
+            {{#if product}}
+            {{>normal-user/combo}}
+            {{else}}
+            {{>normal-user/necessities}}
+            {{/if}}
+            {{/ifCond}}
             {{#ifCond sideIndex '==' 3}}{{>normal-user/payment}}{{/ifCond}}
         </div>
     </div>

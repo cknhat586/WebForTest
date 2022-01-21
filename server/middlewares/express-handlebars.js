@@ -42,6 +42,10 @@ module.exports = (app) => {
             return options.inverse(this);
         }
       },
+
+      times(v1, v2) {
+        return v1 * v2;
+      },
     },
   });
 

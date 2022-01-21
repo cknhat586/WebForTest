@@ -1,129 +1,125 @@
 <div class="necessities">
-  <nav class="d-flex justify-content-center">
-    <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
-      <button
-        class="nav-link active"
-        id="nav-combo-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#nav-combo"
-        type="button"
-        role="tab"
-        aria-controls="nav-combo"
-        aria-selected="true"
-      >Combo</button>
-      <button
-        class="nav-link"
-        id="nav-combo-history-tab"
-        data-bs-toggle="tab"
-        data-bs-target="#nav-combo-history"
-        type="button"
-        role="tab"
-        aria-controls="nav-combo-history"
-        aria-selected="false"
-      >History</button>
-    </div>
-  </nav>
-  <div class="tab-content" id="nav-tabContent">
-    <div
-      class="tab-pane fade show active"
-      id="nav-combo"
-      role="tabpanel"
-      aria-labelledby="nav-combo-tab"
-    >
-      <div class="list-header row justify-content-between">
-        <div class="form-search col-md-6">
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button
-              class="btn btn-outline-success"
-              type="submit"
-            >Search</button>
-          </form>
+    <nav class="d-flex justify-content-center">
+        <div class="nav nav-tabs mb-3" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-combo-tab" data-bs-toggle="tab" data-bs-target="#nav-combo"
+                type="button" role="tab" aria-controls="nav-combo" aria-selected="true">Combo</button>
+            <button class="nav-link" id="nav-combo-history-tab" data-bs-toggle="tab" data-bs-target="#nav-combo-history"
+                type="button" role="tab" aria-controls="nav-combo-history" aria-selected="false">History</button>
         </div>
-        <div class="form-sort col-md-3">
-          <select class="form-select" aria-label="Default select example">
-            <option value="0" selected>All</option>
-            <option value="1">Increase</option>
-            <option value="2">Descrease</option>
-            <option value="3">a-Z</option>
-          </select>
-        </div>
-        <div class="form-filter col-md-3 d-flex justify-content-between">
-          <button
-            class="btn btn-light dropdown-toggle"
-            type="button"
-            id="dropdownMenuFilter"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Filter
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuFilter">
-            <li>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckDefault"
-                />
-                <label class="form-check-label" for="flexCheckDefault">
-                  Default checkbox
-                </label>
-              </div>
-            </li>
-            <li>
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="flexCheckChecked"
-                />
-                <label class="form-check-label" for="flexCheckChecked">
-                  Checked checkbox
-                </label>
-              </div>
-            </li>
-          </ul>
-          <button type="button" class="btn btn-info">Apply</button>
-        </div>
-
-      </div>
-      <div class="list-product">
-        <div class="row justify-content-start gap-0">
-          {{#each combo}}
-            <div class="item col-lg-3 col-md-4 col-sm-6 p-3">
-              <div class="card">
-                <img
-                  src="{{this.image}}"
-                  class="card-img-top"
-                  alt="{{this.name}}"
-                />
-
-                <div class="card-body">
-                  <h5 class="card-title">{{this.name}}</h5>
-                  <p class="card-text">${{this.price}}</p>
-                  <a href="#" class="btn btn-primary">Buy now</a>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-combo" role="tabpanel" aria-labelledby="nav-combo-tab">
+            <div class="list-header row justify-content-between">
+                <div class="form-search col-md-6">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </form>
                 </div>
-              </div>
-            </div>
-          {{/each}}
-        </div>
-      </div>
-    </div>
-    <div
-      class="tab-pane fade"
-      id="nav-combo-history"
-      role="tabpanel"
-      aria-labelledby="nav-combo-history-tab"
-    >...</div>
+                <div class="form-sort col-md-3">
+                    <select class="form-select" aria-label="Default select example">
+                        <option value="0" selected>All</option>
+                        <option value="1">Increase</option>
+                        <option value="2">Descrease</option>
+                        <option value="3">a-Z</option>
+                    </select>
+                </div>
+                <div class="form-filter col-md-3 d-flex justify-content-between">
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuFilter"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Filter
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuFilter">
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Default checkbox
+                                </label>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" />
+                                <label class="form-check-label" for="flexCheckChecked">
+                                    Checked checkbox
+                                </label>
+                            </div>
+                        </li>
+                    </ul>
+                    <button type="button" class="btn btn-info">Apply</button>
+                </div>
 
-  </div>
+            </div>
+            <div class="area-product">
+                <div class="list-product row justify-content-start gap-0">
+                    {{#each combo}}
+                    <div class="item col-lg-3 col-md-4 col-sm-6 p-3">
+                        <div class="card">
+                            <img src="{{this.image}}" class="card-img-top" alt="{{this.name}}" />
+
+                            <div class="card-body">
+                                <h5 class="card-title">{{this.name}}</h5>
+                                <p class="card-text">${{this.price}}</p>
+                                <form action="/combo" method="get">
+                                    <input type="text" name="id" value="{{this.id}}" class="d-none">
+                                    <button type="submit" class="btn btn-primary"><i class="fa fa-check"></i>Buy
+                                        now</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="nav-combo-history" role="tabpanel" aria-labelledby="nav-combo-history-tab">
+            <div class="history">
+                {{#each history}}
+                <p>
+                    <a class="text-muted text-decoration-none" data-bs-toggle="collapse"
+                        href="#collapseHistory-{{@index}}" role="button" aria-expanded="false"
+                        aria-controls="collapseHistory-{{@index}}">
+                        <li class="list-group-item list-group-item-action my-2" aria-current="true">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h6 class="mb-1">{{this.name}}</h6>
+                                <h5>{{this.price}}</h5>
+                                <small>21/03/2022</small>
+                            </div>
+                        </li>
+                    </a>
+                </p>
+                <div class="collapse" id="collapseHistory-{{@index}}">
+                    <div class="card card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Number</th>
+                                    <th scope="col">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody id="list-table">
+                                {{#each this.list}}
+                                <tr class="product-{{@index}}">
+                                    <th scope="row">{{@index}}</th>
+                                    <td>{{this.name}}</td>
+                                    <td class="price">{{this.price}}</td>
+                                    <td>{{this.number}}</td>
+                                    <td class="total">{{times this.price this.number}}</td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+    </div>
 
 </div>
