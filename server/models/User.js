@@ -22,6 +22,11 @@ module.exports = {
         return res;
     },
 
+    update: async (username, columnArray, valueArray) => {
+        const res = await db.update(tbName, usernameFieldName,username, columnArray, valueArray);
+        return res;
+    },
+
     getRelevantByUsername: async username => {
         const user = this.getUserByName(username);
         if (!user) { return ;}

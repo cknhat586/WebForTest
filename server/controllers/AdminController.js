@@ -1,8 +1,9 @@
 const data = require('../connections/rawData');
 Object.freeze(data);
 
-const hostpitalModel = require('../models/Hospitals');
+const hospitalModel = require('../models/Hospitals');
 const placeModel = require('../models/Places');
+const userModel = require('../models/User');
 
 class AdminController {
 
@@ -37,7 +38,7 @@ class AdminController {
         }
     }
 
-    addManagerGET(req, res) {
+    async addManagerGET(req, res) {
         return res.render('admin/addManager');
     }
 
@@ -75,7 +76,7 @@ class AdminController {
 
     async editHospitalGET(req, res) {
         const crrHospitalName = req.query.name;
-        const crrHospital = await hostpitalModel.getHospitalByName(crrHospitalName);
+        const crrHospital = await hospitalModel.getHospitalByName(crrHospitalName);
         if (crrHospital) {
             return res.render('admin/editHospital', {
                 hospital: crrHospital
@@ -102,26 +103,55 @@ class AdminController {
     }
 
     async hospitalListGET(req, res) {
-        const hospitalList = await hostpitalModel.getAll();
+        const hospitalList = await hospitalModel.getAll();
         let list = hospitalList;
         for (let i = 0; i < list.length; i++) {
             list[i].f_Current = (list[i].f_Current).toLocaleString();
             list[i].f_Max = (list[i].f_Max).toLocaleString();
         }
         return res.render('admin/hospitalList', {
-            list: list
+            list: list,
+            ajax: true
         });
     }
 
     addManagerPOST(req, res) {
+
         return res.render('admin/addManager');
     }
 
-    addHospitalPOST(req, res) {
-        return res.render('admin/addHospital');
+    async addHospitalPOST(req, res) {
+        const payload = req.body;
+        const hospital = {
+            f_ID: 10,
+            f_Name: payload.name,
+            f_Address: payload.address + ', ' + payload.ward + ', ' + payload.district + ', ' + payload.province,
+            f_Current: payload.current,
+            f_Max: payload.max
+        };
+        try {
+            const rs = await hospitalModel.add(hospital);
+        } catch (err) {
+            console.error(err);
+        }
+        return res.redirect('/admin/hospitalList');
     }
 
-    editHospitalPOST(req, res) {
+    async editHospitalPOST(req, res) {
+        const payload = req.body;
+        const columnArray = ['f_Name', 'f_Address', 'f_Current', 'f_Max'];
+        const valueArray = {
+            f_Name: payload.name,
+            f_Address: payload.address,
+            f_Current: payload.current,
+            f_Max: payload.max
+        }
+        try {
+            const rs = await hospitalModel.update(payload.oldName, columnArray, valueArray);
+        } catch (err) {
+            console.error(err);
+        }
+
         return res.render('admin/editHospital');
     }
 }

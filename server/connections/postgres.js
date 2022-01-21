@@ -41,3 +41,16 @@ exports.add = async (tbName, entity) => {
         console.log('ERROR: ', err);
     }
 };
+
+exports.update = async (tbName, fieldName, value, columnArray, valueArray) => {
+    const table = new pg.helpers.TableName({ table: tbName, schema: schema});
+    const condition = pg.as.format(` WHERE "${fieldName}"='${value}'`, table);
+    const qStr= pg.helpers.update(valueArray, columnArray, table) + condition;
+    
+    try {
+        const res = await db.one(qStr);
+        return res;
+    } catch (err) {
+        console.log('ERROR: ', err);
+    }
+}
