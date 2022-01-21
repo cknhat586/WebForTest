@@ -1,6 +1,9 @@
 const data = require('../connections/rawData');
 Object.freeze(data);
 
+const hostpitalModel = require('../models/Hospitals');
+const placeModel = require('../models/Places');
+
 class AdminController {
 
     indexGET(req, res) {
@@ -38,23 +41,49 @@ class AdminController {
         return res.render('admin/addManager');
     }
 
-    addHospitalGET(req, res) {
-        return res.render('admin/addHospital');
+    async addHospitalGET(req, res) {
+        const provinceList = await placeModel.getAllProvince();
+        const firstProvince = provinceList[0];
+        let remainProvinceList = [];
+        for (let i = 1; i < provinceList.length; i++) {
+            remainProvinceList.push(provinceList[i]);
+        }
+
+        const districtList = await placeModel.getDistrictByProvince(firstProvince);
+        const firstDistrict = districtList[0];
+        let remainDistrictList = [];
+        for (let i = 1; i < districtList.length; i++) {
+            remainDistrictList.push(districtList[i]);
+        }
+
+        const wardList = await placeModel.getWardByDistrict(firstDistrict);
+        const firstWard = wardList[0];
+        let remainWardList = [];
+        for (let i = 1; i < wardList.length; i++) {
+            remainWardList.push(wardList[i]);
+        }
+
+        return res.render('admin/addHospital', {
+            firstProvince: firstProvince,
+            provinceList: remainProvinceList,
+            firstDistrict: firstDistrict,
+            districtList: remainDistrictList,
+            firstWard: firstWard,
+            wardList: remainWardList
+        });
     }
 
-    editHospitalGET(req, res) {
+    async editHospitalGET(req, res) {
         const crrHospitalName = req.query.name;
-        const db_data = data.hospitalList;
-        let crrHospital;
-        for (let i = 0; i < db_data.length; i++) {
-            if (db_data[i].f_Name == crrHospitalName) {
-                crrHospital = db_data[i];
-                break;
-            }
+        const crrHospital = await hostpitalModel.getHospitalByName(crrHospitalName);
+        if (crrHospital) {
+            return res.render('admin/editHospital', {
+                hospital: crrHospital
+            });
+        } else {
+            return res.redirect('/admin/hospitalList');
         }
-        return res.render('admin/editHospital', {
-            hospital: crrHospital
-        });
+
     }
 
     managerHistoryGET(req, res) {
@@ -72,8 +101,8 @@ class AdminController {
         });
     }
 
-    hospitalListGET(req, res) {
-        const hospitalList = data.hospitalList;
+    async hospitalListGET(req, res) {
+        const hospitalList = await hostpitalModel.getAll();
         let list = hospitalList;
         for (let i = 0; i < list.length; i++) {
             list[i].f_Current = (list[i].f_Current).toLocaleString();
